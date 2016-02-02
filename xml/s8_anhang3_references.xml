@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+[
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<appendix id="cha.startersystem.anhang3_references">
+ <title>References</title>
+ <para>
+  This section describes additional IBM and SUSE books and online
+  documentation that can help you plan, install, customize and administer
+  your system.
+ </para>
+ <sect1 id="sec.startersystem.anhang.third">
+  <title>IBM References</title>
+  <itemizedlist>
+   <title>Planning</title>
+   <listitem>
+    <para>z/VM 6.1 General Information (GC24-6193-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 I/O Configuration (SC24-6198-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 Getting Started with Linux on System z (SC24-6194-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 CP Planning and Administration (SC24-6178-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 Running Guest Operating Systems (SC24-6228-00)</para>
+   </listitem>
+  </itemizedlist>
+  <itemizedlist>
+   <title>Installation</title>
+   <listitem>
+    <para>
+     Refer to the z/VM program directory for a short installation overview.
+    </para>
+   </listitem>
+  </itemizedlist>
+  <itemizedlist>
+   <title>Customization</title>
+   <listitem><para>z/VM 6.1 CMS Primer (SC24-6172-00)</para></listitem>
+   <listitem>
+    <para>z/VM 6.1 XEDIT Commands and Macros Reference (SC24-6244-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 CP Commands and Utilities Reference (SC24-6175-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 CMS Commands and Utilities Reference (SC24-6166-00)</para>
+   </listitem>
+   <listitem>
+    <para>
+     z/VM 6.1 Directory Maintenance Facility Tailoring and Administration Guide (SC24-6190-00)
+    </para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 TCP/IP Planning and Customization (SC24-6238-00)</para>
+   </listitem>
+   <listitem><para>z/VM 6.1 REXX/VM Users Guide (SC24-6222-00)</para>
+   </listitem>
+  </itemizedlist>
+  <itemizedlist>
+   <title>Administration</title>
+   <listitem><para>z/VM 6.1 Performance (SC24-6208-00)</para></listitem>
+   <listitem><para>z/VM 6.1 Diagnosis Guide (GC24-6187-00)</para></listitem>
+   <listitem>
+    <para>z/VM 6.1 CP Messages and Codes (GC24-6177-00)</para>
+   </listitem>
+   <listitem><para>z/VM 6.1 VM Dump Tool (GC24-6242-00)</para></listitem>
+  </itemizedlist>
+  <itemizedlist>
+   <title>Online Articles and References</title>
+   <listitem>
+    <para>Mailing Lists</para>
+    <variablelist>
+     <varlistentry>
+      <term>IBMVM@LISTSERV.UARK.EDU</term>
+      <listitem>
+       <para>
+        A helpful place to ask questions about z/VM and it's capabilities.
+       </para>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+   </listitem>
+   <listitem>
+    <para>z/VM WWW Sites</para>
+    <variablelist>
+     <varlistentry>
+      <term><ulink url="http://www.vm.ibm.com/"/></term>
+      <listitem>
+       <para>
+        This is the main IBM WWW site for z/VM information. The site contains
+        information about the z/VM hypervisor, documentation, white papers and
+        other helpful configuration information and tips.
+       </para>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+ <sect1 id="sec.startersystem.anhang.forth">
+  <title>SUSE Linux Enterprise Server References</title>
+  <para>
+   Most SUSE Linux manuals and information is available online at
+   <ulink url="http://www.suse.com/documentation/sles10/"/>
+   or <ulink url="http://www.suse.com/documentation/sles11/"/>. Individual
+   manuals and documents you may find helpful are listed below.
+  </para>
+ </sect1>
+</appendix>

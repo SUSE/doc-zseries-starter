@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+[
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<chapter id="cha.startersystem.client_install">
+ <title>Installing a New Linux Guest from the Starter System</title>
+ <para/>
+ <sect1 id="sec.startersystem.client_install.first">
+  <title>Installing a New Guest from the Starter System</title>
+  <para>
+   Now that you have the starter system installed, you can use it to install
+   additional virtual Linux servers quickly and easily without need for an
+   external installation media server.
+  </para>
+  <para>
+   The directions in this section describe how to install additional servers
+   using the starter system as a source.
+  </para>
+  <sect2 id="sec.startersystem.client_install.second.first">
+   <title>CP Directory Entry Notes</title>
+   <para>
+    When creating a new virtual server, the CLIENT SAMPDIR file on NOVSTART
+    19F can be used as a template CP directory entry. CLIENT SAMPDIR defines a
+    basic set of virtual machine options and devices and can be used as a
+    basic convention for installing all your virtual servers.
+   </para>
+   <para>
+    The CLIENT SAMPDIR file supplied with the starter system is shown in <xref
+    linkend="sec.startersystem.client_install.second.second"/>.
+   </para>
+   <screen>USER NOVSTART PASSWORD 512M 512M G
+*
+*  Sample Linux virtual Server CP directory entry
+*
+*  The following statements define the virtual machine console,
+*  processor, machine mode and spooled unit record devices
+*  simulated by z/VM
+*
+   IPL CMS PARM AUTOCR
+   MACHINE XA 2
+   CPU 0
+   CPU 1
+   CONSOLE 0009 3215 T CONLOG
+   SPOOL 000C 2540 READER *
+   SPOOL 000D 2540 PUNCH A
+   SPOOL 000E 1403 A
+*
+*  These statements link important components for use by
+*  CMS during IPL
+*
+   LINK MAINT 0190 0190 RR
+   LINK MAINT 019E 019E RR
+   LINK MAINT 019D 019D RR
+*
+*  This statement links the starter system setup tools for
+*  use during Linux installation
+*
+   LINK NOVSTART 019F 019F RR
+*
+*  This statement defines a virtual network adapter for the
+*  virtual machine. This example shows defining the connection to
+*  a guest LAN in the CP directory entry if you so desire.
+*
+   NICDEF 0340 TYPE QDIO LAN SYSTEM GLAN1
+*
+*  These statements show examples of minidisk definitions for the
+*  new virtual machine. The last token on each line is the CP label
+*  of the DASD that will contain the minidisk. These should be
+*  allocated using your local CP directory management process.
+*
+*  MDISK 0191 3390 0001 0005 USER01 MR RIAMSL WIAMSL MIAMSL
+*  MDISK 019F 3390 0006 0050 USER01 MR ALL    WIAMSL MIAMSL
+*  MDISK 0150 3390 0056 3283 USER01 MR RIAMSL WIAMSL MIAMSL
+*  MDISK 0151 3390 0001 3338 USER02 MR RIAMSL WIAMSL MIAMSL
+*  MDISK 0F00 3390 0001 3338 TEMP01 MR RIAMSL WIAMSL MIAMSL</screen>
+   <para>
+    The CLIENT SAMPDIR file defines the following options:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>2 virtual CPUs</para>
+    </listitem>
+    <listitem>
+     <para>512M virtual storage</para>
+    </listitem>
+    <listitem>
+     <para>
+      One virtual NIC at address 340. You will need to update the NICDEF to
+      reflect the guest LAN or VSWITCH to which you wish to connect the
+      network adapter. For initial installation, it should be the same VSWITCH
+      or guest LAN to which you attached the starter system. You may need to
+      grant access to the VSWITCH or guest LAN via the GRANT command if you do
+      not use a ESM to control access permissions.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      A link to NOVSTART 19F (installation and helpful operations tools)
+     </para>
+    </listitem>
+    <listitem>
+     <para>A link to MAINT 190 (for use by CMS)</para>
+    </listitem>
+    <listitem>
+     <para>
+      Comments on recommended minidisk sizes and virtual address patterns.
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>0191 (for CMS startup and configuration use)</para>
+      </listitem>
+      <listitem>
+       <para>0150-015F (Linux disks)</para>
+      </listitem>
+      <listitem>
+       <para>0160-016F (Swap space, created via DEFINE VDISK or SWAPGEN)</para>
+      </listitem>
+      <listitem>
+       <para>0170-017F (Additional Linux disks if needed)</para>
+      </listitem>
+     </itemizedlist>
+     <para>
+      Actual minidisks should be added using your local directory maintenance
+      procedures.
+     </para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    NOVSTART 19F also contains some helpful tools for starting the
+    installation process:
+   </para>
+   <variablelist>
+    <varlistentry>
+     <term>SLES</term>
+     <listitem>
+      <para>
+       Run this EXEC to send the standard installation kernel text decks to
+       the virtual reader of the new guest and IPL from the virtual
+       reader. This EXEC should be run from the new virtual machine you are
+       installing.
+      </para>
+      <para>
+       The SLES exec can also be used to start a damaged system to effect
+       repairs.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>SWAPGEN</term>
+     <listitem>
+      <para>
+       SWAPGEN provides a simple method of formatting and utilizing virtual
+       disk in memory (VDISK) for Linux swap space.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <para>
+    These tools should be available to all Linux guests installed from the
+    starter system.
+   </para>
+   <!-- "pagebreak" --><?dbfo-need height="15em"?>
+  </sect2>
+  <sect2 id="sec.startersystem.client_install.second.second">
+   <title>Starting the Install Process</title>
+   <para>To start the installation, follow these steps:</para>
+   <procedure>
+    <step>
+     <para>
+      Create a new z/VM userid based on CLIENT SAMPDIR (as described above).
+     </para>
+    </step>
+    <step>
+     <para>Log in as the new z/VM userid via tn3270.</para>
+    </step>
+    <step>
+     <para>Format the minidisk at virtual address 0191 by typing:</para>
+     <screen>FORMAT 191 A</screen>
+     <para>The label of the minidisk is not important.</para>
+    </step>
+    <step>
+     <para>Access NOVSTART 19F by typing ACCESS 19F Q</para>
+    </step>
+    <step>
+     <para>
+      Copy the sample PROFILE EXEC from NOVSTART 19F by typing:
+     </para>
+     <screen>COPYFILE PROFILE SAMPEXEC Q PROFILE EXEC A</screen>
+    </step>
+    <step>
+     <para>
+      Start the installation process by typing <command>SLES</command>
+     </para>
+     <para>The install process will begin.</para>
+    </step>
+   </procedure>
+   <para>
+    The remainder of the installation process will proceed as described in the
+    Novell documentation.  You should respond to the prompts similar to the
+    following:
+   </para>
+   <procedure>
+    <step>
+     <para>Select 4) Start Installation of System</para>
+    </step>
+    <step>
+     <para>Select 1) Start Installation or Update</para>
+    </step>
+    <step>
+     <para>Select 2) Network</para>
+    </step>
+    <step>
+     <para>
+      Select your desired installation method (see <xref
+      linkend="sec.startersystem.client_install.second.third"/>)
+     </para>
+    </step>
+    <step>
+     <para>Select 1) OSA-2 or OSA Express as the network device.</para>
+    </step>
+    <step>
+     <para>Select 1) QDIO</para>
+    </step>
+    <step>
+     <para>Select 1) Ethernet</para>
+    </step>
+    <step>
+     <para>
+      When prompted, enter the OSA address information. For servers based on
+      CLIENT SAMPDIR, these values should be:
+     </para>
+     <informaltable frame="topbot" rowsep="2">
+      <tgroup cols="2" colsep="1">
+       <colspec colnum="1" colname="1" colwidth="50*"/>
+       <colspec colnum="2" colname="2" colwidth="50*"/>
+       <tbody>
+        <row>
+         <entry colname="1"><para>Channel ID</para></entry>
+         <entry colname="2"><para>Value</para></entry>
+        </row>
+        <row>
+         <entry colname="1"><para>Read</para></entry>
+         <entry colname="2"><para>0.0.0340</para></entry>
+        </row>
+        <row>
+         <entry colname="1"><para>Write</para></entry>
+         <entry colname="2"><para>0.0.0341</para></entry>
+        </row>
+        <row>
+         <entry colname="1"><para>Data</para></entry>
+         <entry colname="2"><para>0.0.0342</para></entry>
+        </row>
+       </tbody>
+      </tgroup>
+     </informaltable> 
+     <para>
+      A port name is not necessary for virtual NICs.Enabling layer 2 support
+      should reflect the definition of the guest LAN or VSWITCH to which the
+      new server is connected.
+     </para>
+    </step>
+    <step>
+     <para>
+      Specify the network address of the starter system server as the
+      installation source.  See <xref
+      linkend="sec.startersystem.client_install.second.third"/>.  method.
+     </para>
+    </step>
+   </procedure>
+  </sect2>
+  <sect2 id="sec.startersystem.client_install.second.third">
+   <title>Specifying the Install Server Address and Install Method</title>
+   <para>
+    The starter system provides NFS, FTP, SMB and HTTP-based installation
+    support. When prompted for the address of the installation source, supply
+    the IP address of the starter system virtual machine.
+   </para>
+   <para>
+    You may choose any of the supported installation methods; all work equally
+    well over the internal network provided by a guest LAN or VSWITCH.
+   </para>
+   <para>
+    Each installation method will require some additional information about
+    how to locate the data used by that method. The following table describes
+    additional parameters used by that method.
+   </para>
+   <!-- "pagebreak" --><?dbfo-need height="15em"?>
+   <informaltable frame="topbot" rowsep="1">
+    <tgroup cols="2" colsep="1">
+     <colspec colnum="1" colname="1" colwidth="20*"/>
+     <colspec colnum="2" colname="2" colwidth="80*"/>
+     <tbody>
+      <row>
+       <entry colname="1"><para>Method</para></entry>
+       <entry colname="2"><para>Parameters</para></entry>
+      </row>
+      <row>
+       <entry colname="1"><para>FTP</para></entry>
+       <entry colname="2">
+        <para>User anonymous, directory is /SLES11/SP4/s390x/DVD1</para>
+       </entry>
+      </row>
+      <row>
+       <entry colname="1"><para>HTTP</para></entry>
+       <entry colname="2">
+        <para>directory is /SLES11/SP4/s390x/DVD1</para>
+       </entry>
+      </row>
+      <row>
+       <entry colname="1"><para>SMB</para></entry>
+       <entry colname="2">
+        <para>Workgroup WORKGROUP, share "SLES-STARTER", user guest, directory is /SLES11/SP4/s390x/DVD1</para>
+       </entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </informaltable>
+   <para>
+    No proxy server or application gateway specifications are required if
+    using the starter system as the installation source.
+   </para>
+  </sect2>
+  <sect2 id="sec.startersystem.client_install.second.forth">
+   <title>Additional Information About the Install Process</title>
+   <para>
+    Following the completion of the install process, you will likely be able
+    to reduce the amount of virtual storage required by the newly-installed
+    virtual machine, although how much reduction is possible will be dictated
+    by the applications and features you have installed. Smaller virtual
+    machines typically help overall system performance by imposing a smaller
+    memory footprint for z/VM to manage.
+   </para>
+   <para>
+    You can add additional software to your installed virtual machine using
+    YaST and the starter system as a installation source.
+   </para>
+  </sect2>
+ </sect1>
+</chapter>

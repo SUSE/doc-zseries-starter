@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+[
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<chapter id="cha.startersystem.prepare">
+ <title>Preparation</title>
+ <para></para>
+ <sect1 id="cha.startersystem.prepare.first">
+  <title>Preparing to install the &starts;</title>
+  <para>
+   The &starter; is a pre-built installation server for &slesz; that can be
+   installed on your z/VM system using CMS tools, eliminating the need for
+   coordinating access to a separate Linux or UNIX system elsewhere on your
+   network.  It minimizizes the impact of network-based installation on your
+   internal and external networks.
+  </para>
+  <para>
+   The &starts; consists of:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Utilities and configuration tools for installation of the &starts; from a
+     CMS terminal session
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Compressed disk images of the &starts;, including a complete set of RPM
+     packages as shipped with the SUSE Linux Enterprise Server for System z
+     release.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Utilities and configuration tools to assist with installation of
+     additional Linux virtual machines from the &starts; installation
+     server. The configuration tools package also includes a "rescue" system
+     that can be used to recover a SUSE Linux Enterprise Server for System z
+     virtual machine if there are problems that prevent the server from
+     booting and connecting to the network for normal maintenance.
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   This document describes the parts you need to download and the resources
+   required to install the &starts;. The instructions also include an example
+   of how to install an additional Linux server from the &starts;.
+  </para>
+  <warning>
+   <title>THE STARTER SYSTEM IS NOT SUITABLE FOR GENERAL USE</title>
+   <para>
+    The &starts; image has been highly customized for use as an installation
+    server for other SUSE Linux Enterprise Server for System z based Linux
+    servers running in virtual machines. The &starts; is NOT suitable for
+    general use and you should not attempt to use it for any other purpose.
+   </para>
+  </warning>
+ </sect1>
+ <sect1 id="cha.startersystem.prepare.second">
+  <title>What you will need</title>
+  <para>
+   To install the &starts;, you will need to ensure you have sufficient
+   resources available on your system to complete the installation and obtain
+   two CMS tools and the &starts; disk images from the Internet.
+  </para>
+ </sect1>
+</chapter>

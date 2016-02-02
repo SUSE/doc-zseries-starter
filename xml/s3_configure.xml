@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+[
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<chapter id="cha.startersystem.configure">
+ <title>Configuring the &starts;</title>
+ <abstract>
+  <para>
+   The starter system is almost completely configured, however some
+   information about your local network needs to be supplied in order to
+   properly connect and be usable.
+  </para>
+ </abstract>
+ <sect1 id="sec.startersystem.configure.first">
+  <title>Configuring Network Connectivity</title>
+  <para>
+   Log into NOVSTART via a tn3270 session and press RETURN to interrupt the
+   boot process of the Linux system. If a terminal is connected to the guest
+   VM the startup profile will wait 10 seconds to give the user a chance to
+   interrupt the boot of the linux system.
+  </para>
+  <para>
+   Please execute the command <screen>NETNEW NETWORK PARMS</screen> to enter
+   the values of a new installed system and also if values of an existing
+   system should be modified.
+  </para>
+  <screen>NETNEW NETWORK PARMS A
+  System:  Welcome to the SUSE Linux Enterprise Server Starter System
+           configuration tool.
+
+           You didn't specify all the necessary values in NETWORK PARMS A,
+           so I have to ask you for those now.
+
+           Will the starter system be using a DHCP server to get its IP
+           address? (Y/N)
+  You:     <emphasis role="bold">N</emphasis>
+  System:  Please enter the IP address for the starter system.
+  You:     <emphasis role="bold">192.168.1.100</emphasis>
+  System:  Please enter the network mask for the subnet to which the
+           starter system will be connected.
+           For class c networks, this would be 255.255.255.0,
+           For class b networks, it would be 255.255.0.0, etc.
+  You:     <emphasis role="bold">255.255.255.0</emphasis>
+  System:  Please enter the IP address of the default gateway for the
+           starter system.
+  You:     <emphasis role="bold">192.168.1.1</emphasis>
+  System:  Please enter the IP address of the DNS server the
+           starter system will use.
+  You:     <emphasis role="bold">10.10.0.1</emphasis>
+  System:  Please enter the host name you want the starter system to have.
+           Note that this may _not_ include the domain name.
+  You:     <emphasis role="bold">novstart</emphasis>
+  System:  Please enter the domain name for the starter system.
+           Note that this must be at least two levels of qualification
+           but it can be more, based on your site standards.
+  You:     <emphasis role="bold">example.com</emphasis>
+  System:  Is your network interface in layer 2 mode? (Y/N)
+  You:     <emphasis role="bold">n</emphasis>
+  System:  Here are the values you've specified.  Please review them and
+           indicate if you want to revise any of them or finish generating
+           the output file.
+             Host name       novstart
+             Domain name     example.com
+             IP address      192.168.1.100
+             Network mask    255.255.255.0
+             Default gateway 192.168.1.1
+             DNS server      10.10.0.1
+             DHCP            N
+             Layer2          N
+ 
+           Please select modify or accept
+           1 = Modify
+           2 = Accept
+  You:     <emphasis role="bold">2</emphasis>
+  System:  Now that you're satisfied with your network parameters, it's time
+           to write them out to disk. Do you want to over-write your
+           input file NETWORK PARMS A, or do you want to write to a new file?
+ 
+           1 = Over-write NETWORK PARMS A
+           2 = Write to a new file
+           3 = Exit without writing anything
+  You:     <emphasis role="bold">1</emphasis>
+  System:  1
+           OK, writing over NETWORK PARMS A it is!
+           Blam!
+           Ready; T=0.01/0.01 13:11:46</screen>
+  <para>
+   <!-- "pagebreak" --><?dbfo-need height="15em"?>
+   After all questions are answered, please enter the following command to
+   start the &starts;:
+  </para>
+  <screen>IPL 150 CLEAR</screen>
+ </sect1>
+ <sect1 id="sec.startersystem.configure.second">
+  <title>Other NOVSTART Maintenance Tasks</title>
+  <sect2 id="sec.startersystem.configure.second.first">
+   <title>Changing the NOVSTART root password</title>
+   <para>
+    The starter system is shipped with a default password of "novell" and
+    should be changed immediately after installation.  To change the password:
+   </para>
+   <procedure>
+    <step>
+     <para>
+      Log in to the systen via ssh as root using a SSH client such as putty.
+     </para>
+    </step>
+    <step>
+     <para>
+      Use the <command>passwd</command> command to change the password.
+     </para>
+    </step>
+   </procedure>
+  </sect2>
+  <sect2 id="sec.startersystem.configure.second.third">
+ <title>Recovering from a damaged or misconfigured system</title>
+  <para>
+   If you need to change the network configuration of the starter system,
+   connect via a tn3270 session to NOVSTART.  Log in as root and issue the
+   following commands:
+  </para>
+  <screen>rm /etc/Startsysten_already_configured
+reboot</screen>
+  <para>
+   Now the system reboots and read in the parameters from the file
+   <filename>NETWORK PARMS</filename>.
+  </para>
+  </sect2>
+ </sect1>
+</chapter>

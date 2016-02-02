@@ -1,0 +1,12 @@
+Color PDF:
+ daps -d DC-starterkit pdf
+
+HTML (chunked):
+ daps -d DC-starterkit html
+
+HTML (single file):
+ daps -d DC-starterkit html --single
+
+ASCII Text:
+ daps -d DC-starterkit txt
+

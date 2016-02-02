@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+[
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<chapter id="cha.startersystem.anhang">
+ <title>Appendices</title>
+ <abstract>
+  <para>
+   This section describes additional IBM and SUSE books and online
+   documentation that can help you plan, install, customize and administer
+   your system. If you do not find the references you need please submit a
+   written comment to support@novell.com.
+  </para>
+ </abstract>
+ <sect1 id="sec.startersystem.anhang.first">
+  <title>Appendix A - Contents of Starter System Distribution Archives</title>
+  <informaltable frame="topbot" rowsep="1">
+   <tgroup cols="2" colsep="1">
+    <colspec colnum="1" colname="1" colwidth="35*"/>
+    <colspec colnum="2" colname="2" colwidth="65*"/>
+    <thead>
+     <row>
+      <entry colname="1"><para>Archive</para></entry>
+      <entry colname="2"><para>Contents</para></entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry colname="1"><para>VMAEXEC EXEC</para></entry>
+      <entry colname="2">
+       <para>A self-extracting copy of VMARC MODULE</para>
+      </entry>
+     </row>
+     <row>
+      <entry colname="1"><para>CMSDEXEC EXEC</para></entry>
+      <entry colname="2">
+       <para>A self-extracting copy of CMSDDR VMARC</para>
+      </entry>
+     </row>
+     <row>
+      <entry colname="1"><para>NOVSTART SAMPDIR</para></entry>
+      <entry colname="2">
+       <para>
+        The sample CP directory entry for the starter system in EBCDIC.
+       </para>
+      </entry>
+     </row>
+     <row>
+      <entry colname="1"><para>NOVSTART SAMPASC</para></entry>
+      <entry colname="2">
+       <para>
+        The sample CP directory entry for the starter system in ASCII.
+       </para>
+      </entry>
+     </row>
+     <row>
+      <entry colname="1"><para>INVMARC EXEC</para></entry>
+      <entry colname="2">
+       <para>REXX-script to do the installation.</para>
+      </entry>
+     </row>
+     <row>
+      <entry colname="1"><para>NOV19X VMARC</para></entry>
+      <entry colname="2">
+       <para>
+        This archive contains two disk images and a REXX script.  The disk
+        image NOV191 IMG contains the sample PROFILE EXEC, PROFILE XEDIT and
+        NETWORK PARMS for the starter system.  The disk image NOV19F IMG
+        contains an IPLable kernel data, the sample virtual server CP
+        directory entry, helpful CMS tools for building Linux virtual servers.
+       </para>
+      </entry>
+     </row>
+     <row>
+      <entry colname="1"><para>NOV150 VMARC</para></entry>
+      <entry colname="2">
+       <para>
+        The bootable Linux image providing the installation functions and
+        basic software for the FTP, HTTP, SMB and NFS servers.
+       </para>
+      </entry>
+     </row>
+     <row>
+      <entry colname="1"><para>NOV151 VMARC</para></entry>
+      <entry colname="2"><para>The SLES 10 SP4 RPM repository</para></entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </sect1>
+ <sect1 id="sec.startersystem.anhang.second">
+  <title>Appendix B - Copyright and License Information</title>
+  <para>
+   General Documentation License
+  </para>
+  <sect2 id="sec.startersystem.anhang.second.first">
+   <title>Legal Notice</title>
+   <para>
+    This manual is protected under Novell and others' intellectual property
+    rights. By reproducing, duplicating or distributing this manual you
+    explicitly conform to the terms and conditions of this license agreement.
+   </para>
+   <para>
+    This manual may be freely reproduced, duplicated and distributed either as
+    such or as part of a bundled package in electronic and/or printed form
+    provided however that the following conditions are fulfilled:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      That this copyright notice and the names of authors and contributors
+      appear clearly and distinctively on all reproduced, duplicated and
+      distributed copies.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      That this manual, specifically for the printed format, is reproduced
+      and/or distributed for noncommercial use only.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      The express authorization of Novell, Inc must be obtained prior to any
+      other use of any manual or thereof.
+     </para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    For Novell trademarks, see the Novell Trademark and Service Mark list
+    at:
+   </para>
+   <para>
+    <ulink url="http://www.novell.com/company/legal/trademarks/tmlist.html"/>
+   </para>
+   <para>
+    Linux(*) is a registered trademark of Linus Torvalds. All other third
+    party trademarks are the property of their respective owners. XXX A
+    trademark symbol (;, ; etc.) denotes a Novell trademark; an asterisk (*)
+    denotes a third party trademark.
+   </para>
+   <para>
+    All information found in this book has been compiled with utmost attention
+    to detail.  However, this does not guarantee complete accuracy. Neither
+    Novell, Inc., SUSE LINUX Products GmbH, the authors, nor the translators
+    shall be held liable for possible errors or the consequences thereof.
+   </para>
+  </sect2>
+  <sect2 id="sec.startersystem.anhang.second.second">
+   <title>Availability of Source Code</title>
+   <para>
+    For size and simplification of installation, the source code to the
+    utilities and programs included in the starter system has not been
+    included in the disk images. Complete source code for all system
+    components is available from <ulink
+    url="http://www.suse.com/download-linux/source-code.html"/>.
+   </para>
+  </sect2>
+  <sect2 id="sec.startersystem.anhang.second.third">
+   <title>CMS Utility Licenses</title>
+   <para>
+    VMARC is copyright 1982 by John Fisher and is used here by permission of
+    the author.
+   </para>
+   <para>
+    CMSDDR is used here by permission of International Business Machines
+    (IBM).
+   </para>
+  </sect2>
+ </sect1>
+ <sect1 id="sec.startersystem.anhang.third">
+  <title>Appendix C. IBM References</title>
+  <para>
+   This section describes additional IBM and SUSE books and online
+   documentation that can help you plan, install, customize and administer
+   your system.
+  </para>
+  <itemizedlist>
+   <title>Planning</title>
+   <listitem>
+    <para>z/VM 6.1 General Information (GC24-6193-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 I/O Configuration (SC24-6198-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 Getting Started with Linux on System z (SC24-6194-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 CP Planning and Administration (SC24-6178-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 Running Guest Operating Systems (SC24-6228-00)</para>
+   </listitem>
+  </itemizedlist>
+  <itemizedlist>
+   <title>Installation</title>
+   <listitem>
+    <para>
+     Refer to the z/VM program directory for a short installation overview.
+    </para>
+   </listitem>
+  </itemizedlist>
+  <itemizedlist>
+   <title>Customization</title>
+   <listitem><para>z/VM 6.1 CMS Primer (SC24-6172-00)</para></listitem>
+   <listitem>
+    <para>z/VM 6.1 XEDIT Commands and Macros Reference (SC24-6244-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 CP Commands and Utilities Reference (SC24-6175-00)</para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 CMS Commands and Utilities Reference (SC24-6166-00)</para>
+   </listitem>
+   <listitem>
+    <para>
+     z/VM 6.1 Directory Maintenance Facility Tailoring and Administration Guide (SC24-6190-00)
+    </para>
+   </listitem>
+   <listitem>
+    <para>z/VM 6.1 TCP/IP Planning and Customization (SC24-6238-00)</para>
+   </listitem>
+   <listitem><para>z/VM 6.1 REXX/VM Users Guide (SC24-6222-00)</para>
+   </listitem>
+  </itemizedlist>
+  <itemizedlist>
+   <title>Administration</title>
+   <listitem><para>z/VM 6.1 Performance (SC24-6208-00)</para></listitem>
+   <listitem><para>z/VM 6.1 Diagnosis Guide (GC24-6187-00)</para></listitem>
+   <listitem>
+    <para>z/VM 6.1 CP Messages and Codes (GC24-6177-00)</para>
+   </listitem>
+   <listitem><para>z/VM 6.1 VM Dump Tool (GC24-6242-00)</para></listitem>
+  </itemizedlist>
+  <itemizedlist>
+   <title>Online Articles and References</title>
+   <listitem>
+    <para>Mailing Lists</para>
+    <variablelist>
+     <varlistentry>
+      <term>IBMVM@LISTSERV.UARK.EDU</term>
+      <listitem>
+       <para>
+        A helpful place to ask questions about z/VM and it's capabilities.
+       </para>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+   </listitem>
+   <listitem>
+    <para>z/VM WWW Sites</para>
+    <variablelist>
+     <varlistentry>
+      <term><ulink url="http://www.vm.ibm.com/"/></term>
+      <listitem>
+       <para>
+        This is the main IBM WWW site for z/VM information. The site contains
+        information about the z/VM hypervisor, documentation, white papers and
+        other helpful configuration information and tips.
+       </para>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+ <sect1 id="sec.startersystem.anhang.forth">
+  <title>Appendix D. SUSE Linux Enterprise Server References</title>
+  <para>
+   Most SUSE Linux manuals and information is available online at
+   <ulink url="http://www.suse.com/documentation/sles10/"/>
+   or <ulink url="http://www.suse.com/documentation/sles11/"/>. Individual
+   manuals and documents you may find helpful are listed below.
+  </para>
+ </sect1>
+ <sect1 id="sec.startersystem.anhang.fifth">
+  <title>Appendix E. Installation Script invmarc.exec</title>
+  <para>
+   The script below does the installation of the images and the tools.
+  </para>
+  <screen>/* Starter System                                       */
+/* Set up tool and system disks                         */
+
+trace e
+ADDRESS COMMAND
+
+say; say 'Accessing F00 as A'
+'ACCESS F00 A'
+
+say; say 'Extracting VMAEXEC EXEC A...'
+'EXEC VMAEXEC EXTRACT A'
+
+say; say 'Erasing VMAEXEC EXEC A...'
+'ERASE VMAEXEC EXEC A (TYPE'
+
+say; say 'Unpacking NOV19X VMARC A...'
+'VMARC UNPACK NOV19X VMARC A * * A'
+
+say; say 'Extracting CMSDEXEC EXEC A...'
+'EXEC CMSDEXEC EXTRACT A'
+
+say; say 'Erasing CMSDEXEC EXEC A...'
+'ERASE CMSDEXEC EXEC A (TYPE'
+
+say; say 'Restoring NOV191 DISKIMG A...'
+'EXEC CMSDDR RESTORE 191 NOV191 DISKIMG A'
+
+say; say 'Restoring NOV19F DISKIMG A...'
+'EXEC CMSDDR RESTORE 19F NOV19F DISKIMG A'
+
+say; say 'Erasing files no longer needed...'
+'ERASE NOV19X VMARC A (TYPE'
+'ERASE NOV191 DISKIMG A (TYPE'
+'ERASE NOV19F DISKIMG A (TYPE'
+
+say; say 'Accessing 150 as G'
+'ACCESS 150 G'
+say; say 'Unpacking NOV150 VMARC G...'
+'VMARC UNPACK NOV150 VMARC G * * A'
+say; say 'RELEASE G'
+'RELEASE G'
+
+say; say 'Restoring NOV150 DISKIMG A...'
+'EXEC CMSDDR RESTORE 150 NOV150 DISKIMG A'
+
+say; say 'Erasing files no longer needed...'
+'ERASE NOV150 DISKIMG A (TYPE'
+say 'No need to ERASE NOV150 VMARC G since we just wrote over the' ,
+    '150 disk doing the RESTORE.'
+
+say; say 'ACCESSing 151 as G'
+'ACCESS 151 G'
+say; say 'UNPACKING NOV151 VMARC G...'
+'VMARC UNPACK NOV151 VMARC G * * A'
+say; say 'RELEASE G'
+'RELEASE G'
+
+say; say 'Restoring NOV151 DISKIMG A...'
+'EXEC CMSDDR RESTORE 151 NOV151 DISKIMG A'
+
+say; say 'Erasing files no longer needed...'
+'ERASE NOV151 DISKIMG A (TYPE'
+say 'No need to ERASE NOV151 VMARC G since we just wrote over the' ,
+    '151 disk doing the RESTORE.'
+
+say 'Accessing 191 as E, and 19F as F'
+'ACCESS 191 E'
+'ACCESS 19F F'
+
+say ''
+say 'Finished...'
+say ''</screen>
+ </sect1>
+</chapter>

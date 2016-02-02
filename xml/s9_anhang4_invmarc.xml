@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+[
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<appendix id="sec.startersystem.anhang.fifth">
+ <title>Installation Script invmarc.exec</title>
+ <para>
+  The script below does the installation of the images and the tools.
+ </para>
+ <screen>/* Starter System                                       */
+/* Set up tool and system disks                         */
+
+trace e
+ADDRESS COMMAND
+
+say; say 'Accessing F00 as A'
+'ACCESS F00 A'
+
+say; say 'Extracting VMAEXEC EXEC A...'
+'EXEC VMAEXEC EXTRACT A'
+
+say; say 'Erasing VMAEXEC EXEC A...'
+'ERASE VMAEXEC EXEC A (TYPE'
+
+say; say 'Unpacking NOV19X VMARC A...'
+'VMARC UNPACK NOV19X VMARC A * * A'
+
+say; say 'Extracting CMSDEXEC EXEC A...'
+'EXEC CMSDEXEC EXTRACT A'
+
+say; say 'Erasing CMSDEXEC EXEC A...'
+'ERASE CMSDEXEC EXEC A (TYPE'
+
+say; say 'Restoring NOV191 DISKIMG A...'
+'EXEC CMSDDR RESTORE 191 NOV191 DISKIMG A'
+
+say; say 'Restoring NOV19F DISKIMG A...'
+'EXEC CMSDDR RESTORE 19F NOV19F DISKIMG A'
+
+say; say 'Erasing files no longer needed...'
+'ERASE NOV19X VMARC A (TYPE'
+'ERASE NOV191 DISKIMG A (TYPE'
+'ERASE NOV19F DISKIMG A (TYPE'
+
+say; say 'Accessing 150 as G'
+'ACCESS 150 G'
+say; say 'Unpacking NOV150 VMARC G...'
+'VMARC UNPACK NOV150 VMARC G * * A'
+say; say 'RELEASE G'
+'RELEASE G'
+
+say; say 'Restoring NOV150 DISKIMG A...'
+'EXEC CMSDDR RESTORE 150 NOV150 DISKIMG A'
+
+say; say 'Erasing files no longer needed...'
+'ERASE NOV150 DISKIMG A (TYPE'
+say 'No need to ERASE NOV150 VMARC G since we just wrote over the' ,
+    '150 disk doing the RESTORE.'
+
+say; say 'ACCESSing 151 as G'
+'ACCESS 151 G'
+say; say 'UNPACKING NOV151 VMARC G...'
+'VMARC UNPACK NOV151 VMARC G * * A'
+say; say 'RELEASE G'
+'RELEASE G'
+
+say; say 'Restoring NOV151 DISKIMG A...'
+'EXEC CMSDDR RESTORE 151 NOV151 DISKIMG A'
+
+say; say 'Erasing files no longer needed...'
+'ERASE NOV151 DISKIMG A (TYPE'
+say 'No need to ERASE NOV151 VMARC G since we just wrote over the' ,
+    '151 disk doing the RESTORE.'
+
+say 'Accessing 191 as E, and 19F as F'
+'ACCESS 191 E'
+'ACCESS 19F F'
+
+say ''
+say 'Finished...'
+say ''</screen>
+</appendix>

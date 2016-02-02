@@ -1,0 +1,30 @@
+<!-- ...................................................................... -->
+<!-- General Entities                                                       -->
+<!-- ...................................................................... -->
+
+
+
+<!ENTITY sk             "Starter System">
+<!ENTITY rootuser       '<systemitem class="username">root</systemitem>'>
+<!ENTITY grub           "GRUB">
+<!ENTITY suse           "SUSE">
+<!ENTITY novell         "Novell">
+<!ENTITY yast           "YaST">
+<!ENTITY zseries        "System z">
+<!ENTITY sls            "SUSE Linux Enterprise Server">
+<!ENTITY slsreg         "SUSE&reg; Linux Enterprise Server">
+<!ENTITY sdk            "SUSE Software Development Kit">
+<!ENTITY start		"SLES Starter System for System z">
+<!ENTITY starts		"Starter System for System z">
+<!ENTITY starter	"SUSE Linux Enterprise Server Starter System for System z">
+<!ENTITY slesz		"SUSE Linux Enterprise Server for System z">
+<!ENTITY ncc            "Novell Customer Center">
+<!ENTITY thrdmrk       "*">
+
+<!ENTITY productname   "&slesz;">
+<!ENTITY productnamereg "&slsreg; for System z">
+
+<!ENTITY % network-entities SYSTEM "network-decl.ent">
+%network-entities; 
+
+

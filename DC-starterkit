@@ -1,0 +1,14 @@
+## ---------------------------- 
+## Doc Config File for SLES for System z
+## Starter System Creation Guide
+## ----------------------------
+##
+## Basics
+MAIN="xml/MAIN.startersystem.xml"
+ROOTID="startersystem"
+
+## stylesheet location
+STYLEROOT="/usr/share/xml/docbook/stylesheet/suse"
+
+## enable sourcing
+export DOCCONF=$BASH_SOURCE
