@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+<!DOCTYPE appendix
 [
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<appendix id="sec.startersystem.anhang.fifth">
+<!-- Converted by suse-upgrade version 1.1 -->
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.startersystem.anhang.fifth">
  <title>Installation Script invmarc.exec</title>
+ <info/>
  <para>
   The script below does the installation of the images and the tools.
  </para>
- <screen>/* Starter System                                       */
+<screen><![CDATA[/* Starter System                                       */
 /* Set up tool and system disks                         */
 
 trace e
@@ -81,5 +82,5 @@ say 'Accessing 191 as E, and 19F as F'
 
 say ''
 say 'Finished...'
-say ''</screen>
+say '']]></screen>
 </appendix>

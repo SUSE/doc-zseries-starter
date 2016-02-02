@@ -1,35 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet
- href="urn:x-daps:xslt:profiling:docbook45-profile.xsl"
- type="text/xml"
- title="Profiling step"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book
 [
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<book lang="en" id="startersystem">
+<!-- Converted by suse-upgrade version 1.1 -->
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="startersystem">
  <title>&sk; Creation Guide</title>
- <bookinfo>
-  <productname>&slsreg; for IBM &zseries;</productname>
-  <productnumber>11</productnumber>
-  <date><?dbtimestamp format="B d, Y"?></date>
-  <xi:include href="common_copyright_gfdl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+ <info><productname>&slsreg; for IBM &zseries;</productname>
+  <productnumber>11</productnumber><date>
+<?dbtimestamp format="B d, Y"?></date>
+  <xi:include href="common_copyright_gfdl.xml"/>
   <authorgroup>
-   <author>
-    <firstname>Ihno</firstname>
-    <surname>Krumreich</surname>
+   <author><personname><firstname>Ihno</firstname><surname>Krumreich</surname></personname>
    </author>
   </authorgroup>
- </bookinfo>
- <xi:include href="s1_prepare.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
- <xi:include href="s2_install.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
- <xi:include href="s3_configure.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
- <xi:include href="s4_install_guest.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
- <xi:include href="s5_problems.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
- <xi:include href="s6_anhang1_content.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
- <xi:include href="s7_anhang2_copyright.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
- <xi:include href="s8_anhang3_references.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
- <xi:include href="s9_anhang4_invmarc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
- <xi:include href="common_legal.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+ </info>
+ <xi:include href="s1_prepare.xml"/>
+ <xi:include href="s2_install.xml"/>
+ <xi:include href="s3_configure.xml"/>
+ <xi:include href="s4_install_guest.xml"/>
+ <xi:include href="s5_problems.xml"/>
+ <xi:include href="s6_anhang1_content.xml"/>
+ <xi:include href="s7_anhang2_copyright.xml"/>
+ <xi:include href="s8_anhang3_references.xml"/>
+ <xi:include href="s9_anhang4_invmarc.xml"/>
+ <xi:include href="common_legal.xml"/>
 </book>

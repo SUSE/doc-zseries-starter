@@ -1,38 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+<!DOCTYPE appendix
 [
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<appendix id="sec.startersystem.anhang.first">
- <!-- id="cha.startersystem.anhang" -->
+<!-- Converted by suse-upgrade version 1.1 -->
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.startersystem.anhang.first">
  <title>Contents of Starter System Distribution Archives</title>
+ <info/>
+<!-- id="cha.startersystem.anhang" -->
  <informaltable frame="topbot" rowsep="1">
   <tgroup cols="2" colsep="1">
    <colspec colnum="1" colname="1" colwidth="35*"/>
    <colspec colnum="2" colname="2" colwidth="65*"/>
    <thead>
     <row>
-     <entry colname="1"><para>Archive</para></entry>
-     <entry colname="2"><para>Contents</para></entry>
+     <entry colname="1">
+      <para>
+       Archive
+      </para>
+     </entry>
+     <entry colname="2">
+      <para>
+       Contents
+      </para>
+     </entry>
     </row>
    </thead>
    <tbody>
     <row>
-     <entry colname="1"><para>VMAEXEC EXEC</para></entry>
+     <entry colname="1">
+      <para>
+       VMAEXEC EXEC
+      </para>
+     </entry>
      <entry colname="2">
-      <para>A self-extracting copy of VMARC MODULE</para>
+      <para>
+       A self-extracting copy of VMARC MODULE
+      </para>
      </entry>
     </row>
     <row>
-     <entry colname="1"><para>CMSDEXEC EXEC</para></entry>
+     <entry colname="1">
+      <para>
+       CMSDEXEC EXEC
+      </para>
+     </entry>
      <entry colname="2">
-      <para>A self-extracting copy of CMSDDR VMARC</para>
+      <para>
+       A self-extracting copy of CMSDDR VMARC
+      </para>
      </entry>
     </row>
     <row>
-     <entry colname="1"><para>NOVSTART SAMPDIR</para></entry>
+     <entry colname="1">
+      <para>
+       NOVSTART SAMPDIR
+      </para>
+     </entry>
      <entry colname="2">
       <para>
        The sample CP directory entry for the starter system in EBCDIC.
@@ -40,7 +65,11 @@
      </entry>
     </row>
     <row>
-     <entry colname="1"><para>NOVSTART SAMPASC</para></entry>
+     <entry colname="1">
+      <para>
+       NOVSTART SAMPASC
+      </para>
+     </entry>
      <entry colname="2">
       <para>
        The sample CP directory entry for the starter system in ASCII.
@@ -48,25 +77,40 @@
      </entry>
     </row>
     <row>
-     <entry colname="1"><para>INVMARC EXEC</para></entry>
-     <entry colname="2">
-      <para>REXX-script to do the installation.</para>
+     <entry colname="1">
+      <para>
+       INVMARC EXEC
+      </para>
      </entry>
-    </row>
-    <row>
-     <entry colname="1"><para>NOV19X VMARC</para></entry>
      <entry colname="2">
       <para>
-       This archive contains two disk images and a REXX script.  The disk
-       image NOV191 IMG contains the sample PROFILE EXEC, PROFILE XEDIT and
-       NETWORK PARMS for the starter system.  The disk image NOV19F IMG
-       contains an IPLable kernel data, the sample virtual server CP
-       directory entry, helpful CMS tools for building Linux virtual servers.
+       REXX-script to do the installation.
       </para>
      </entry>
     </row>
     <row>
-     <entry colname="1"><para>NOV150 VMARC</para></entry>
+     <entry colname="1">
+      <para>
+       NOV19X VMARC
+      </para>
+     </entry>
+     <entry colname="2">
+      <para>
+       This archive contains two disk images and a REXX script. The disk
+       image NOV191 IMG contains the sample PROFILE EXEC, PROFILE XEDIT and
+       NETWORK PARMS for the starter system. The disk image NOV19F IMG
+       contains an IPLable kernel data, the sample virtual server CP
+       directory entry, helpful CMS tools for building Linux virtual
+       servers.
+      </para>
+     </entry>
+    </row>
+    <row>
+     <entry colname="1">
+      <para>
+       NOV150 VMARC
+      </para>
+     </entry>
      <entry colname="2">
       <para>
        The bootable Linux image providing the installation functions and
@@ -75,8 +119,16 @@
      </entry>
     </row>
     <row>
-     <entry colname="1"><para>NOV151 VMARC</para></entry>
-     <entry colname="2"><para>The SLES 10 SP4 RPM repository</para></entry>
+     <entry colname="1">
+      <para>
+       NOV151 VMARC
+      </para>
+     </entry>
+     <entry colname="2">
+      <para>
+       The SLES 10 SP4 RPM repository
+      </para>
+     </entry>
     </row>
    </tbody>
   </tgroup>

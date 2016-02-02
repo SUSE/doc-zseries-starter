@@ -5,7 +5,7 @@
 
 
 <!ENTITY sk             "Starter System">
-<!ENTITY rootuser       '<systemitem class="username">root</systemitem>'>
+<!ENTITY rootuser       '<systemitem class="username" xmlns="http://docbook.org/ns/docbook">root</systemitem>'>
 <!ENTITY grub           "GRUB">
 <!ENTITY suse           "SUSE">
 <!ENTITY novell         "Novell">
@@ -27,4 +27,9 @@
 <!ENTITY % network-entities SYSTEM "network-decl.ent">
 %network-entities; 
 
-
+<!ENTITY % sgml.features "IGNORE">
+<!ENTITY % xml.features "INCLUDE">
+<!ENTITY % dbcent PUBLIC "-//OASIS//ENTITIES DocBook Character
+  Entities V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/dbcentx.mod">
+    %dbcent;

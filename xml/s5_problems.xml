@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+<!DOCTYPE chapter
 [
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<chapter id="cha.startersystem.problems">
+<!-- Converted by suse-upgrade version 1.1 -->
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.startersystem.problems">
  <title>How to Report Problems With the Starter System</title>
+ <info/>
  <para/>
- <sect1 id="sec.startersystem.problems.first">
+ <sect1 xml:id="sec.startersystem.problems.first">
   <title>How to Report Problems With the Starter System</title>
+
   <para>
-   If the problem you are experiencing is not covered in the previous section,
-   follow these steps to report a problem to SUSE.
+   If the problem you are experiencing is not covered in the previous
+   section, follow these steps to report a problem to SUSE.
   </para>
-  <sect2 id="sec.startersystem.problems.second.first">
+
+  <sect2 xml:id="sec.startersystem.problems.second.first">
    <title>What to Collect Before You Report A Problem</title>
    <para>
     You should collect the following information before you report a problem
@@ -25,28 +28,33 @@
      <para>
       A console log showing the error. You can obtain this by typing
      </para>
-     <screen>#CP SPOOL CONSOLE TO * START</screen>
-     <para>and repeating the failing step.</para>
-    </listitem>
-    <listitem>
+<screen><![CDATA[#CP SPOOL CONSOLE TO * START]]></screen>
      <para>
-      A short description of the problem. Explain what you are doing, and what
-      you expected the outcome to be.
+      and repeating the failing step.
      </para>
     </listitem>
     <listitem>
-     <para>How you want to be contacted.</para>
+     <para>
+      A short description of the problem. Explain what you are doing, and
+      what you expected the outcome to be.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      How you want to be contacted.
+     </para>
     </listitem>
    </itemizedlist>
   </sect2>
-  <sect2 id="sec.startersystem.problems.second.second">
+
+  <sect2 xml:id="sec.startersystem.problems.second.second">
    <title>Where to Report A Problem</title>
    <para>
     Report your problem to the Novell Customer Center as described in the
     Novell Customer Center Users Guide. You can obtain a copy of the guide
     online. Consult the references provided in Appendix D, SUSE Linux
-    Enterprise Server References on page 42 for the location of this document
-    and how to retrieve a copy.
+    Enterprise Server References on page 42 for the location of this
+    document and how to retrieve a copy.
    </para>
   </sect2>
  </sect1>

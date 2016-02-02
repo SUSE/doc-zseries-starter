@@ -8,7 +8,7 @@ MAIN="xml/MAIN.startersystem.xml"
 ROOTID="startersystem"
 
 ## stylesheet location
-STYLEROOT="/usr/share/xml/docbook/stylesheet/suse"
+STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2013-ns"
 
 ## enable sourcing
 export DOCCONF=$BASH_SOURCE

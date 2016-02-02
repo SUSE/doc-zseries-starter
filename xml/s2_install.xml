@@ -1,160 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+<!DOCTYPE chapter
 [
-          <!ENTITY % entities SYSTEM "entity-decl.ent">
-          %entities;
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<chapter id="cha.startersystem.installation">
+<!-- Converted by suse-upgrade version 1.1 -->
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.startersystem.installation">
  <title>Installing the &starts;</title>
-  <para/>
-  <sect1 id="sec.startersystem.installation.first">
-   <title>Processor requirements</title>
-  <para>
-  </para>
+ <info/>
+ <para/>
+ <sect1 xml:id="sec.startersystem.installation.first">
+  <title>Processor requirements</title>
+
+  <para></para>
+
   <para>
    The &starter; and all &slesz; Linux virtual machines require a
-   z/Architecture-capable processor to operate. 31-bit processors such as any
-   model of the 9672 and ESA/390 architecture processors are not supported.
+   z/Architecture-capable processor to operate. 31-bit processors such as
+   any model of the 9672 and ESA/390 architecture processors are not
+   supported.
   </para>
+
+  <para></para>
+
   <para>
-  </para>
-  <para>
-   The &starter; has been run successfully on the following machines
-   and is supported on z9 EC/BC, z10 EC/BC, z196/z114, zBC12 and zEC12.
+   The &starter; has been run successfully on the following machines and
+   is supported on z9 EC/BC, z10 EC/BC, z196/z114, zBC12 and zEC12.
   </para>
  </sect1>
- <sect1 id="sec.startersystem.installation.second">
- <title>Network requirements</title>
+ <sect1 xml:id="sec.startersystem.installation.second">
+  <title>Network requirements</title>
+
+  <para></para>
+
   <para>
-  </para>
-  <para>
-   The &starts; requires access to a VSWITCH defined on the z/VM system and
-   one virtual NIC interface attached to that VSWITCH either in the CP
+   The &starts; requires access to a VSWITCH defined on the z/VM system
+   and one virtual NIC interface attached to that VSWITCH either in the CP
    directory entry for the virtual machine or via the CP COUPLE command. A
-   guest LAN connection may also be used, however the VSWITCH is more flexible
-   and is considered better practice for the future.
+   guest LAN connection may also be used, however the VSWITCH is more
+   flexible and is considered better practice for the future.
   </para>
-  <!-- "pagebreak" --><!-- <?dbfo-need height="15em"?> -->
+
+<!-- "pagebreak" -->
+
+<!-- <?dbfo-need height="15em"?> -->
+
+  <para></para>
+
   <para>
+   The &starts; will require one unique IP address on the network
+   connected to the VSWITCH, along with the correct network mask, default
+   gateway, and DNS server parameters for that network. You should obtain
+   this information from your local network administrator and record it on
+   the network planning worksheet in
+   <xref linkend="sec.startersystem.installation.eleven"/>.
   </para>
+
+  <para></para>
+ </sect1>
+ <sect1 xml:id="sec.startersystem.installation.third">
+  <title>DASD requirements</title>
+
+  <sect2 xml:id="sec.startersystem.installation.third.first">
+   <title>Permanent DASD requirements</title>
+   <para></para>
+   <para>
+    The SUSE Linux Enterprise Server Starter System for System z requires
+    permanent access to two full 3390 model 3 disk packs to hold the system
+    image and the RPM repository. Use the sample directory entry NOVSTART
+    SAMPDIR and your local directory and disk management practices to
+    allocate the disk space as shown in the sample directory entry.
+   </para>
+   <para></para>
+   <para>
+    Sites that use larger 3390 (model 9 or 27) volumes may combine the
+    minidisks shown in the sample directory entry onto a single larger
+    volume without impact.
+   </para>
+   <para></para>
+   <para>
+    The &starts; requires a VDISK DASD with 20000 blocks to operate. This
+    DASD is created by the PROFILE EXEC during startup of the system and is
+    used for the swap space of the linux system.
+   </para>
+   <para></para>
+  </sect2>
+
+  <sect2 xml:id="sec.startersystem.installation.third.second">
+   <title>Temporary DASD requirements</title>
+   <para></para>
+   <para>
+    During the installation process, the &starts; installation will
+    require an additional 3390 model 3 disk pack or an equivalent amount of
+    space to store disk images before installation.
+   </para>
+   <para></para>
+   <para>
+    After the installation of the &starts;, this temporary space can be
+    released.
+   </para>
+   <para></para>
+  </sect2>
+ </sect1>
+ <sect1 xml:id="sec.startersystem.installation.fourth">
+  <title>Operating System requirements</title>
+
   <para>
-   The &starts; will require one unique IP address on the network connected to
-   the VSWITCH, along with the correct network mask, default gateway, and DNS
-   server parameters for that network. You should obtain this information from
-   your local network administrator and record it on the network planning
-   worksheet in <xref linkend="sec.startersystem.installation.eleven"/>.
-  </para>
-  <para>
+   The &starts; is designed to work with z/VM release 5.4 and later
+   supported versions of z/VM. z/VM must be installed before you begin the
+   installation of the &starts;. Refer to the IBM reference works listed
+   in <xref linkend="sec.startersystem.anhang.third"/> for additional
+   information on installing and configuring z/VM.
   </para>
  </sect1>
- <sect1 id="sec.startersystem.installation.third">
- <title>DASD requirements</title>
- <sect2 id="sec.startersystem.installation.third.first">
- <title>Permanent DASD requirements</title>
-  <para>
-  </para>
-  <para>
-   The SUSE Linux Enterprise Server Starter System for System z requires
-   permanent access to two full 3390 model 3 disk packs to hold the system
-   image and the RPM repository. Use the sample directory entry NOVSTART
-   SAMPDIR and your local directory and disk management practices to allocate
-   the disk space as shown in the sample directory entry.
-  </para>
-  <para>
-  </para>
-  <para>
-   Sites that use larger 3390 (model 9 or 27) volumes may combine the
-   minidisks shown in the sample directory entry onto a single larger volume
-   without impact.
-  </para>
-  <para>
-  </para>
-  <para>
-   The &starts; requires a VDISK DASD with 20000 blocks to operate.  This DASD
-   is created by the PROFILE EXEC during startup of the system and is used for
-   the swap space of the linux system.
-  </para>
-  <para>
-  </para>
- </sect2>
- <sect2 id="sec.startersystem.installation.third.second">
- <title>Temporary DASD requirements</title>
-  <para>
-  </para>
-  <para>
-   During the installation process, the &starts; installation will require an
-   additional 3390 model 3 disk pack or an equivalent amount of space to store
-   disk images before installation.
-  </para>
-  <para>
-  </para>
-  <para>
-   After the installation of the &starts;, this temporary space can be released.
-  </para>
-  <para>
-  </para>
- </sect2>
- </sect1>
- <sect1 id="sec.startersystem.installation.fourth">
- <title>Operating System requirements</title>
-  <para>
-   The &starts; is designed to work with z/VM release 5.4 and later supported
-   versions of z/VM.
-   z/VM must be installed before you begin the installation of the &starts;.
-   Refer to the IBM reference works listed in <xref
-   linkend="sec.startersystem.anhang.third"/> for additional information on
-   installing and configuring z/VM.
-  </para>
- </sect1>
- <sect1 id="sec.startersystem.installation.fifth">
- <title>&starts; Components</title>
+ <sect1 xml:id="sec.startersystem.installation.fifth">
+  <title>&starts; Components</title>
+
   <para>
    Once you have verified that your system can support the &starts;
-   requirements, you need to acquire the components of the &starts; and the
-   disk images. The following sections describe where to obtain each
+   requirements, you need to acquire the components of the &starts; and
+   the disk images. The following sections describe where to obtain each
    component.
   </para>
+
   <warning>
-  <title>Obtain all components before beginning installation</title>
-  <para>
-   Complete the planning worksheet and download all the components before you
-   begin installing the &starts;.  Having all the parts at the beginning of
-   installation avoids problems or missing data during the installation
-   process.
-  </para>
+   <title>Obtain all components before beginning installation</title>
+   <para>
+    Complete the planning worksheet and download all the components before
+    you begin installing the &starts;. Having all the parts at the
+    beginning of installation avoids problems or missing data during the
+    installation process.
+   </para>
   </warning>
-  <para>All of the following files can be obtained from:</para>
+
   <para>
-   <ulink url="https://www.suse.com/startersystem/" />
+   All of the following files can be obtained from:
   </para>
+
   <para>
-   Any references in the following sections to file names or locations should
-   refer to this location (e.g., prepend this URL path to the name of the
-   listed file to download that file), alternatively follow the links on this
-   site to the actual download location.
+   <link xlink:href="https://www.suse.com/startersystem/"/>
+  </para>
+
+  <para>
+   Any references in the following sections to file names or locations
+   should refer to this location (e.g., prepend this URL path to the name of
+   the listed file to download that file), alternatively follow the links on
+   this site to the actual download location.
   </para>
  </sect1>
- <sect1 id="sec.startersystem.installation.sixth">
- <title>Documentation</title>
+ <sect1 xml:id="sec.startersystem.installation.sixth">
+  <title>Documentation</title>
+
   <para>
    The documentation (including this file) can be obtained from the download
-   location noted above. ASCII and PDF versions of the document are available.
+   location noted above. ASCII and PDF versions of the document are
+   available.
   </para>
  </sect1>
- <sect1 id="sec.startersystem.installation.seventh">
- <title>Sample entry for DIRECTORY</title>
+ <sect1 xml:id="sec.startersystem.installation.seventh">
+  <title>Sample entry for DIRECTORY</title>
+
   <para>
-   A sample CP directory entry can be downloaded from the location referred to
-   above. Two versions are available:
+   A sample CP directory entry can be downloaded from the location referred
+   to above. Two versions are available:
   </para>
+
   <variablelist>
    <varlistentry>
     <term>"NOVSTART SAMPDIR"</term>
     <listitem>
      <para>
-      The sample directory entry in EBCDIC encoding. This version is suitable for
-      direct submission to directory managers or editing on CMS.
+      The sample directory entry in EBCDIC encoding. This version is
+      suitable for direct submission to directory managers or editing on
+      CMS.
      </para>
     </listitem>
    </varlistentry>
@@ -162,42 +180,60 @@
     <term>"NOVSTART SAMPASC"</term>
     <listitem>
      <para>
-      The sample directory entry in ASCII encoding. This version is provided for
-      viewing on ASCII-based hosts. It can be used to preview what will need
-      to be done before uploading the files to the z/VM system.
+      The sample directory entry in ASCII encoding. This version is provided
+      for viewing on ASCII-based hosts. It can be used to preview what will
+      need to be done before uploading the files to the z/VM system.
      </para>
     </listitem>
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 id="sec.startersystem.installation.eight">
- <title>CMS Utilities</title>
+ <sect1 xml:id="sec.startersystem.installation.eight">
+  <title>CMS Utilities</title>
+
   <para>
-   The required CMS utilities provide the ability to compress and manage disk
-   images. The VMARC shown below is available from the download location noted
-   above. CMSDDR is part of the NOV19X VMARC image.
+   The required CMS utilities provide the ability to compress and manage
+   disk images. The VMARC shown below is available from the download
+   location noted above. CMSDDR is part of the NOV19X VMARC image.
   </para>
+
   <informaltable frame="topbot" rowsep="1">
    <tgroup cols="2" colsep="1">
     <colspec colnum="1" colname="1" colwidth="20*"/>
     <colspec colnum="2" colname="2" colwidth="80*"/>
     <tbody>
      <row>
-      <entry colname="1"><para>VMARC</para></entry>
+      <entry colname="1">
+       <para>
+        VMARC
+       </para>
+      </entry>
       <entry colname="2">
        <para>
-        The VMARC file archive utility for CMS, which allows decompressing the
-        disk image files before restoring.</para></entry>
+        The VMARC file archive utility for CMS, which allows decompressing
+        the disk image files before restoring.
+       </para>
+      </entry>
      </row>
      <row>
-      <entry colname="1"><para>CMSDDR</para></entry>
+      <entry colname="1">
+       <para>
+        CMSDDR
+       </para>
+      </entry>
       <entry colname="2">
        <para>
         A modified version of the CMS DDR command which supports reading and
-        writing disk image data to and from CMS files.</para></entry>
+        writing disk image data to and from CMS files.
+       </para>
+      </entry>
      </row>
      <row>
-      <entry colname="1"><para>INVMARC</para></entry>
+      <entry colname="1">
+       <para>
+        INVMARC
+       </para>
+      </entry>
       <entry colname="2">
        <para>
         This REXX-script performs the required installation steps.
@@ -207,54 +243,86 @@
     </tbody>
    </tgroup>
   </informaltable>
+
   <para>
    The most current versions of these tools are also included inside the
-   &starts; disk images, and may be newer than the ones available from the
-   SUSE web site.
+   &starts; disk images, and may be newer than the ones available from
+   the SUSE web site.
   </para>
  </sect1>
- <sect1 id="sec.startersystem.installation.nine">
- <title>Starter System Disk Images</title>
+ <sect1 xml:id="sec.startersystem.installation.nine">
+  <title>Starter System Disk Images</title>
+
   <para>
    The &starts; disk images can be retrieved from the download area noted
    above. The following three files are required.
   </para>
+
   <informaltable frame="topbot" rowsep="1">
    <tgroup cols="2" colsep="1">
     <colspec colnum="1" colname="1" colwidth="20*"/>
     <colspec colnum="2" colname="2" colwidth="80*"/>
     <tbody>
      <row>
-      <entry colname="1"><para>NOV19X</para></entry>
-      <entry colname="2"><para>VMARC</para></entry>
+      <entry colname="1">
+       <para>
+        NOV19X
+       </para>
+      </entry>
+      <entry colname="2">
+       <para>
+        VMARC
+       </para>
+      </entry>
      </row>
-    <row>
-     <entry colname="1"><para>NOV150</para></entry>
-     <entry colname="2"><para>VMARC</para></entry>
-    </row>
-    <row>
-     <entry colname="1"><para>NOV151</para></entry>
-     <entry colname="2"><para>VMARC</para></entry>
-    </row>
+     <row>
+      <entry colname="1">
+       <para>
+        NOV150
+       </para>
+      </entry>
+      <entry colname="2">
+       <para>
+        VMARC
+       </para>
+      </entry>
+     </row>
+     <row>
+      <entry colname="1">
+       <para>
+        NOV151
+       </para>
+      </entry>
+      <entry colname="2">
+       <para>
+        VMARC
+       </para>
+      </entry>
+     </row>
     </tbody>
    </tgroup>
   </informaltable>
-  <para>The archive NOV19X VMARC contains two disk images.</para>
- </sect1>
- <sect1 id="sec.startersystem.installation.ten">
-  <title>&starts; Planning Worksheet</title>
+
   <para>
-   Use the following worksheets to record important parameters for the starter
-   system install process.
+   The archive NOV19X VMARC contains two disk images.
   </para>
-  <sect2 id="sec.startersystem.installation.eleven">
+ </sect1>
+ <sect1 xml:id="sec.startersystem.installation.ten">
+  <title>&starts; Planning Worksheet</title>
+
+  <para>
+   Use the following worksheets to record important parameters for the
+   starter system install process.
+  </para>
+
+  <sect2 xml:id="sec.startersystem.installation.eleven">
    <title>Hardware Prerequisites</title>
    <para/>
    <sect3>
     <title>Permanent Minidisks</title>
     <table frame="topbot" rowsep="1">
      <title>Permanent minidisk Requirement Worksheet</title>
-     <tgroup  cols="7" colsep="1">
+     <tgroup cols="7" colsep="1">
       <colspec colnum="1" colname="1" colwidth="12*"/>
       <colspec colnum="2" colname="2" colwidth="15*"/>
       <colspec colnum="3" colname="3" colwidth="25*"/>
@@ -264,55 +332,183 @@
       <colspec colnum="7" colname="7" colwidth="12*"/>
       <thead>
        <row>
-        <entry colname="1"><para>Virtual Adress</para></entry>
-        <entry colname="2"><para>Minidisk Label</para></entry>
-        <entry colname="3"><para>Desc</para></entry>
-        <entry colname="4"><para>Device Type</para></entry>
-        <entry colname="5"><para>Size</para></entry>
-        <entry colname="6"><para>Starting Cylinder</para></entry>
-        <entry colname="7"><para>Located on CP VolID</para></entry>
+        <entry colname="1">
+         <para>
+          Virtual Adress
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          Minidisk Label
+         </para>
+        </entry>
+        <entry colname="3">
+         <para>
+          Desc
+         </para>
+        </entry>
+        <entry colname="4">
+         <para>
+          Device Type
+         </para>
+        </entry>
+        <entry colname="5">
+         <para>
+          Size
+         </para>
+        </entry>
+        <entry colname="6">
+         <para>
+          Starting Cylinder
+         </para>
+        </entry>
+        <entry colname="7">
+         <para>
+          Located on CP VolID
+         </para>
+        </entry>
        </row>
       </thead>
       <tbody>
        <row>
-        <entry colname="1"><para>0191</para></entry>
-        <entry colname="2"><para>NOV191</para></entry>
-        <entry colname="3"><para>CMS startup utilities</para></entry>
-        <entry colname="4"><para>3390</para></entry>
-        <entry colname="5"><para>5 cyl</para></entry>
-        <entry colname="6"><para>1</para></entry>
-        <entry colname="7"><para></para></entry>
+        <entry colname="1">
+         <para>
+          0191
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          NOV191
+         </para>
+        </entry>
+        <entry colname="3">
+         <para>
+          CMS startup utilities
+         </para>
+        </entry>
+        <entry colname="4">
+         <para>
+          3390
+         </para>
+        </entry>
+        <entry colname="5">
+         <para>
+          5 cyl
+         </para>
+        </entry>
+        <entry colname="6">
+         <para>
+          1
+         </para>
+        </entry>
+        <entry colname="7">
+         <para/>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>019F</para></entry>
-        <entry colname="2"><para>NOV19F</para></entry>
+        <entry colname="1">
+         <para>
+          019F
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          NOV19F
+         </para>
+        </entry>
         <entry colname="3">
          <para>
           Starter System installation and recovery tools
          </para>
         </entry>
-        <entry colname="4"><para>3390</para></entry>
-        <entry colname="5"><para>50 cyl</para></entry>
-        <entry colname="6"><para>6</para></entry>
-        <entry colname="7"><para></para></entry>
+        <entry colname="4">
+         <para>
+          3390
+         </para>
+        </entry>
+        <entry colname="5">
+         <para>
+          50 cyl
+         </para>
+        </entry>
+        <entry colname="6">
+         <para>
+          6
+         </para>
+        </entry>
+        <entry colname="7">
+         <para/>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>0150</para></entry>
-        <entry colname="2"><para>n/a (LINUX)</para></entry>
-        <entry colname="3"><para>Starter system boot and user data</para></entry>
-        <entry colname="4"><para>3390</para></entry>
-        <entry colname="5"><para>3283 cyl</para></entry>
-        <entry colname="6"><para>56</para></entry>
-        <entry colname="7"><para></para></entry>
+        <entry colname="1">
+         <para>
+          0150
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          n/a (LINUX)
+         </para>
+        </entry>
+        <entry colname="3">
+         <para>
+          Starter system boot and user data
+         </para>
+        </entry>
+        <entry colname="4">
+         <para>
+          3390
+         </para>
+        </entry>
+        <entry colname="5">
+         <para>
+          3283 cyl
+         </para>
+        </entry>
+        <entry colname="6">
+         <para>
+          56
+         </para>
+        </entry>
+        <entry colname="7">
+         <para/>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>0151</para></entry>
-        <entry colname="2"><para>n/a (LINUX)</para></entry>
-        <entry colname="3"><para>Starter System RPM repository</para></entry>
-        <entry colname="4"><para>3390</para></entry>
-        <entry colname="5"><para>3338 cyl</para></entry>
-        <entry colname="6"><para>1</para></entry>
-        <entry colname="7"><para></para></entry>
+        <entry colname="1">
+         <para>
+          0151
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          n/a (LINUX)
+         </para>
+        </entry>
+        <entry colname="3">
+         <para>
+          Starter System RPM repository
+         </para>
+        </entry>
+        <entry colname="4">
+         <para>
+          3390
+         </para>
+        </entry>
+        <entry colname="5">
+         <para>
+          3338 cyl
+         </para>
+        </entry>
+        <entry colname="6">
+         <para>
+          1
+         </para>
+        </entry>
+        <entry colname="7">
+         <para/>
+        </entry>
        </row>
       </tbody>
      </tgroup>
@@ -332,26 +528,77 @@
       <colspec colnum="7" colname="7" colwidth="12*"/>
       <thead>
        <row>
-        <entry colname="1"><para>Virtual Adress</para></entry>
-        <entry colname="2"><para>Minidisk Label</para></entry>
-        <entry colname="3"><para>Desc</para></entry>
-        <entry colname="4"><para>Device Type</para></entry>
-        <entry colname="5"><para>Size</para></entry>
-        <entry colname="6"><para>Starting Cylinder</para></entry>
-        <entry colname="7"><para>Located on CP VolID</para></entry>
+        <entry colname="1">
+         <para>
+          Virtual Adress
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          Minidisk Label
+         </para>
+        </entry>
+        <entry colname="3">
+         <para>
+          Desc
+         </para>
+        </entry>
+        <entry colname="4">
+         <para>
+          Device Type
+         </para>
+        </entry>
+        <entry colname="5">
+         <para>
+          Size
+         </para>
+        </entry>
+        <entry colname="6">
+         <para>
+          Starting Cylinder
+         </para>
+        </entry>
+        <entry colname="7">
+         <para>
+          Located on CP VolID
+         </para>
+        </entry>
        </row>
       </thead>
       <tbody>
        <row>
-        <entry colname="1"><para>F00</para></entry>
-        <entry colname="2"><para>NOVTMP</para></entry>
-        <entry colname="3">
-         <para>Temporary disk for installation work area</para>
+        <entry colname="1">
+         <para>
+          F00
+         </para>
         </entry>
-        <entry colname="4"><para>3390</para></entry>
-        <entry colname="5"><para>3338 cyl</para></entry>
-        <entry colname="6"><para>1</para></entry>
-        <entry colname="7"><para></para>
+        <entry colname="2">
+         <para>
+          NOVTMP
+         </para>
+        </entry>
+        <entry colname="3">
+         <para>
+          Temporary disk for installation work area
+         </para>
+        </entry>
+        <entry colname="4">
+         <para>
+          3390
+         </para>
+        </entry>
+        <entry colname="5">
+         <para>
+          3338 cyl
+         </para>
+        </entry>
+        <entry colname="6">
+         <para>
+          1
+         </para>
+        </entry>
+        <entry colname="7">
+         <para/>
         </entry>
        </row>
       </tbody>
@@ -359,6 +606,7 @@
     </table>
    </sect3>
   </sect2>
+
   <sect2>
    <title>Network connection Information</title>
    <para/>
@@ -371,55 +619,112 @@
       <colspec colnum="2" colname="2" colwidth="50*"/>
       <thead>
        <row>
-        <entry colname="1"><para>Attribute</para></entry>
-        <entry colname="2"><para>Adapter 1</para></entry>
+        <entry colname="1">
+         <para>
+          Attribute
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          Adapter 1
+         </para>
+        </entry>
        </row>
       </thead>
       <tbody>
        <row>
-        <entry colname="1"><para>Virtual Address</para></entry>
-        <entry colname="2"><para>0700</para></entry>
+        <entry colname="1">
+         <para>
+          Virtual Address
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          0700
+         </para>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>VSWITCH Name</para></entry>
-        <entry colname="2"><para></para></entry>
+        <entry colname="1">
+         <para>
+          VSWITCH Name
+         </para>
+        </entry>
+        <entry colname="2">
+         <para/>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>DHCP ?</para></entry>
-        <entry colname="2"><para>No/Yes</para></entry>
+        <entry colname="1">
+         <para>
+          DHCP ?
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          No/Yes
+         </para>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>IP Address</para></entry>
-        <entry colname="2"><para></para></entry>
+        <entry colname="1">
+         <para>
+          IP Address
+         </para>
+        </entry>
+        <entry colname="2">
+         <para/>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>Netmask</para></entry>
-        <entry colname="2"><para></para></entry>
+        <entry colname="1">
+         <para>
+          Netmask
+         </para>
+        </entry>
+        <entry colname="2">
+         <para/>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>Default Gateway</para></entry>
-        <entry colname="2"><para></para></entry>
+        <entry colname="1">
+         <para>
+          Default Gateway
+         </para>
+        </entry>
+        <entry colname="2">
+         <para/>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>DNS Server</para></entry>
-        <entry colname="2"><para></para></entry>
+        <entry colname="1">
+         <para>
+          DNS Server
+         </para>
+        </entry>
+        <entry colname="2">
+         <para/>
+        </entry>
        </row>
       </tbody>
      </tgroup>
     </table>
    </sect3>
   </sect2>
+
   <sect2>
    <title>Downloaded Components</title>
-   <para>All of the following files can be obtained from:</para>
    <para>
-    <ulink url="https://www.suse.com/startersystem/" />
+    All of the following files can be obtained from:
+   </para>
+   <para>
+    <link xlink:href="https://www.suse.com/startersystem/"/>
    </para>
    <para>
     Any references in the following sections to file names or locations
-    should refer to this location (e.g. prepend this URL path to the
-    name of the listed file to download that file), alternatively follow
-    the links on this site to the actual download location.
+    should refer to this location (e.g. prepend this URL path to the name of
+    the listed file to download that file), alternatively follow the links
+    on this site to the actual download location.
    </para>
    <sect3>
     <title>Documentation Downloads</title>
@@ -428,18 +733,42 @@
      <tgroup cols="2" colsep="1">
       <thead>
        <row>
-        <entry colname="1"><para>File Name</para></entry>
-        <entry colname="2"><para>Location</para></entry>
+        <entry colname="1">
+         <para>
+          File Name
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          Location
+         </para>
+        </entry>
        </row>
       </thead>
       <tbody>
        <row>
-        <entry colname="1"><para>startersystem-guide.txt</para></entry>
-        <entry colname="2"><para>startersystem-guide.txt</para></entry>
+        <entry colname="1">
+         <para>
+          startersystem-guide.txt
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          startersystem-guide.txt
+         </para>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>startersystem-guide.pdf</para></entry>
-        <entry colname="2"><para>startersystem-guide.pdf</para></entry>
+        <entry colname="1">
+         <para>
+          startersystem-guide.pdf
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          startersystem-guide.pdf
+         </para>
+        </entry>
        </row>
       </tbody>
      </tgroup>
@@ -447,25 +776,48 @@
    </sect3>
    <sect3>
     <title>Sample CP Directory entry</title>
-  <para>
-  </para>
+    <para></para>
     <table frame="topbot" rowsep="1">
      <title>Sample directory entry checklist</title>
      <tgroup cols="2" colsep="1">
       <thead>
        <row>
-        <entry colname="1"><para>File Name</para></entry>
-        <entry colname="2"><para>Location</para></entry>
+        <entry colname="1">
+         <para>
+          File Name
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          Location
+         </para>
+        </entry>
        </row>
       </thead>
       <tbody>
        <row>
-        <entry colname="1"><para>NOVSTART SAMPDIR</para></entry>
-        <entry colname="2"><para>novstart.sampdir</para></entry>
+        <entry colname="1">
+         <para>
+          NOVSTART SAMPDIR
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          novstart.sampdir
+         </para>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>NOVSTART SAMPASC</para></entry>
-        <entry colname="2"><para>novstart.sampasc</para></entry>
+        <entry colname="1">
+         <para>
+          NOVSTART SAMPASC
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          novstart.sampasc
+         </para>
+        </entry>
        </row>
       </tbody>
      </tgroup>
@@ -473,25 +825,48 @@
    </sect3>
    <sect3>
     <title>Utility Downloads</title>
-  <para>
-  </para>
+    <para></para>
     <table frame="topbot" rowsep="1">
      <title>CMS utility download checklist</title>
      <tgroup cols="2" colsep="1">
       <thead>
        <row>
-        <entry colname="1"><para>File Name</para></entry>
-        <entry colname="2"><para>Location</para></entry>
+        <entry colname="1">
+         <para>
+          File Name
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          Location
+         </para>
+        </entry>
        </row>
       </thead>
       <tbody>
        <row>
-        <entry colname="1"><para>VMAEXEC EXEC</para></entry>
-        <entry colname="2"><para>vmaexec.exec</para></entry>
+        <entry colname="1">
+         <para>
+          VMAEXEC EXEC
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          vmaexec.exec
+         </para>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>INVMARC EXEC</para></entry>
-        <entry colname="2"><para>invmarc.exec</para></entry>
+        <entry colname="1">
+         <para>
+          INVMARC EXEC
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          invmarc.exec
+         </para>
+        </entry>
        </row>
       </tbody>
      </tgroup>
@@ -499,29 +874,60 @@
    </sect3>
    <sect3>
     <title>Disk image downloads</title>
-  <para>
-  </para>
+    <para></para>
     <table frame="topbot" rowsep="1">
      <title>Disk image download checklist</title>
      <tgroup cols="2" colsep="1">
       <thead>
        <row>
-        <entry colname="1"><para>File Name</para></entry>
-        <entry colname="2"><para>Location</para></entry>
+        <entry colname="1">
+         <para>
+          File Name
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          Location
+         </para>
+        </entry>
        </row>
       </thead>
       <tbody>
        <row>
-        <entry colname="1"><para>NOV19X VMARC</para></entry>
-        <entry colname="2"><para>nov19x.vmarc</para></entry>
+        <entry colname="1">
+         <para>
+          NOV19X VMARC
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          nov19x.vmarc
+         </para>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>NOV150 VMARC</para></entry>
-        <entry colname="2"><para>nov150.vmarc</para></entry>
+        <entry colname="1">
+         <para>
+          NOV150 VMARC
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          nov150.vmarc
+         </para>
+        </entry>
        </row>
        <row>
-        <entry colname="1"><para>NOV151 VMARC</para></entry>
-        <entry colname="2"><para>nov151.vmarc</para></entry>
+        <entry colname="1">
+         <para>
+          NOV151 VMARC
+         </para>
+        </entry>
+        <entry colname="2">
+         <para>
+          nov151.vmarc
+         </para>
+        </entry>
        </row>
       </tbody>
      </tgroup>
@@ -529,11 +935,13 @@
    </sect3>
   </sect2>
  </sect1>
- <sect1 id="sec.startersystem.installation.twelve">
+ <sect1 xml:id="sec.startersystem.installation.twelve">
   <title>Installation</title>
+
   <para>
    This section describes a step by step installation of the &starter;.
   </para>
+
   <warning>
    <title>Be sure to read the procedure completely before beginning</title>
    <para>
@@ -543,13 +951,15 @@
     beginning to install the &starts;.
    </para>
   </warning>
+
   <para>
-   For illustration purposes, the installation procedure assumes you will use
-   z/VM userid NOVSTART for the &starts; as shown in the sample CP directory
-   entry file. Any userid may be used, however you will need to modify this
-   procedure according to your local conventions.
+   For illustration purposes, the installation procedure assumes you will
+   use z/VM userid NOVSTART for the &starts; as shown in the sample CP
+   directory entry file. Any userid may be used, however you will need to
+   modify this procedure according to your local conventions.
   </para>
-  <sect2 id="sec.startersystem.installation.thirteen">
+
+  <sect2 xml:id="sec.startersystem.installation.thirteen">
    <title>Preparing the virtual machine</title>
    <procedure>
     <step>
@@ -562,112 +972,113 @@
      <warning>
       <title>Elevated CP priviliges are not required</title>
       <para>
-       The &starts; virtual machine does not require any privileges beyond the
-       normal class G privileges available to an ordinary z/VM user. You should
-       not grant the &starts; virtual machine any additional privileges unless
-       you fully understand the results and risks associated.
+       The &starts; virtual machine does not require any privileges
+       beyond the normal class G privileges available to an ordinary z/VM
+       user. You should not grant the &starts; virtual machine any
+       additional privileges unless you fully understand the results and
+       risks associated.
       </para>
      </warning>
     </step>
     <step>
      <para>
-      Add the minidisks specified in the worksheet using your local directory
-      management procedures. You can use the comments in the sample directory
-      entry or the planning worksheet values to estimate the amount of space
-      needed.
+      Add the minidisks specified in the worksheet using your local
+      directory management procedures. You can use the comments in the
+      sample directory entry or the planning worksheet values to estimate
+      the amount of space needed.
      </para>
      <para>
-      If using 3390 model 3 volumes, two full volumes will be required. If using
-      3390 model 9 or 27 volumes, only a fraction of one volume will be
-      required, however there will be a performance impact if all the minidisks
-      are located on the same volume.
+      If using 3390 model 3 volumes, two full volumes will be required. If
+      using 3390 model 9 or 27 volumes, only a fraction of one volume will
+      be required, however there will be a performance impact if all the
+      minidisks are located on the same volume.
      </para>
      <para>
       Example MDISK entries might appear similar to these:
      </para>
-     <screen>MDISK 191 3390 xxxx yyyyyy MR RIAMSL WIAMSL MIAMSL
+<screen><![CDATA[MDISK 191 3390 xxxx yyyyyy MR RIAMSL WIAMSL MIAMSL
 MDISK 150 3390 xxxx yyyyyy MR RIAMSL WIAMSL MIAMSL
 MDISK 151 3390 xxxx yyyyyy MR RIAMSL WIAMSL MIAMSL
 MDISK 19F 3390 xxxx yyyyyy MR ALL WIAMSL MIAMSL
-MDISK F00 3390 xxxx yyyyyy MR RIAMSL WIAMSL MIAMSL</screen>
+MDISK F00 3390 xxxx yyyyyy MR RIAMSL WIAMSL MIAMSL]]></screen>
      <para>
-      If you are using an external security manager on your z/VM system, consult
-      the documentation for your ESM on how to provide similar function via
-      rules.
+      If you are using an external security manager on your z/VM system,
+      consult the documentation for your ESM on how to provide similar
+      function via rules.
      </para>
      <para>
-      The minidisks need to be formatted using CMS FORMAT. If this is already
-      done during the provisioning process, this will shorten the installation.
-      Otherwise it is done as part of the installation process.
+      The minidisks need to be formatted using CMS FORMAT. If this is
+      already done during the provisioning process, this will shorten the
+      installation. Otherwise it is done as part of the installation
+      process.
      </para>
     </step>
     <step>
      <para>
-      Ensure that users can create VDISKs by updating the settings in the z/VM
-      SYSTEM CONFIG file to permit creation of VDISKs.  Consult the z/VM
-      documentation in <xref linkend="sec.startersystem.anhang.third"/> for more
-      information on updating SYSTEM CONFIG.  The user should be able to
+      Ensure that users can create VDISKs by updating the settings in the
+      z/VM SYSTEM CONFIG file to permit creation of VDISKs. Consult the z/VM
+      documentation in <xref linkend="sec.startersystem.anhang.third"/> for
+      more information on updating SYSTEM CONFIG. The user should be able to
       allocate a disk with 200000 blocks in the VDISK space.
      </para>
     </step>
    </procedure>
   </sect2>
-  <sect2 id="sec.startersystem.installation.fourteen">
+
+  <sect2 xml:id="sec.startersystem.installation.fourteen">
    <title>Performing the installation</title>
-  <para>
-  </para>
+   <para></para>
    <para>
     If the disk are already formatted with CMS FORMAT, you can skip the
     following steps and go to step 4.
    </para>
-  <para>
-  </para>
+   <para></para>
    <procedure>
     <step>
-     <para>Log into NOVSTART via a tn3270 session.</para>
+     <para>
+      Log into NOVSTART via a tn3270 session.
+     </para>
     </step>
     <step>
      <para>
-      If your disk management tool does not automatically format minidisks for
-      use with CMS, prepare the F00, 150 and 151 minidisk for use.
+      If your disk management tool does not automatically format minidisks
+      for use with CMS, prepare the F00, 150 and 151 minidisk for use.
      </para>
-  <para>
-  </para>
+     <para></para>
      <para>
-      Some CMS disk and directory management tools do not automatically prepare
-      minidisks for use with CMS. To do this, you need to use the CMS FORMAT
-      command to prepare the disk for use. If your disk management tool
-      automatically formats your minidisks before making them available, skip
-      this step.
+      Some CMS disk and directory management tools do not automatically
+      prepare minidisks for use with CMS. To do this, you need to use the
+      CMS FORMAT command to prepare the disk for use. If your disk
+      management tool automatically formats your minidisks before making
+      them available, skip this step.
      </para>
-  <para>
-  </para>
+     <para></para>
      <para>
       An example FORMAT command and execution should look similar to the
       following:
      </para>
-     <screen>  You:  <emphasis role="bold">FORMAT F00 G</emphasis>
+<screen><![CDATA[  You:  ]]><emphasis role="bold">FORMAT F00 G</emphasis><![CDATA[
 System: DMSFOR0603R FORMAT will erase all files on disk G(F00).
         Do you wish to continue? Enter 1 (YES) or 0 (NO).
-  You:  <emphasis role="bold">1</emphasis>
+  You:  ]]><emphasis role="bold">1</emphasis><![CDATA[
 System: DMSFOR605R Enter disk label:
-  You:  <emphasis role="bold">NOVF00</emphasis>
+  You:  ]]><emphasis role="bold">NOVF00</emphasis><![CDATA[
 System: DMSFOR733I Formatting disk G
-        Ready; T=0.02/0.18 15:50:35</screen>
-<screen>  You:  <emphasis role="bold">FORMAT 151 H</emphasis>
+        Ready; T=0.02/0.18 15:50:35]]></screen>
+<screen><![CDATA[  You:  ]]><emphasis role="bold">FORMAT 151 H</emphasis><![CDATA[
 System: DMSFOR0603R FORMAT will erase all files on disk H(151).
         Do you wish to continue? Enter 1 (YES) or 0 (NO).
-  You:  <emphasis role="bold">1</emphasis>
+  You:  ]]><emphasis role="bold">1</emphasis><![CDATA[
 System: DMSFOR605R Enter disk label:
-  You:  <emphasis role="bold">NOV151</emphasis>
-System: DMSFOR733I Formatting disk H</screen>
-<screen>  You:  <emphasis role="bold">FORMAT 150 I</emphasis>
+  You:  ]]><emphasis role="bold">NOV151</emphasis><![CDATA[
+System: DMSFOR733I Formatting disk H]]></screen>
+<screen><![CDATA[  You:  ]]><emphasis role="bold">FORMAT 150 I</emphasis><![CDATA[
 System: DMSFOR0603R FORMAT will erase all files on disk I(150).
         Do you wish to continue? Enter 1 (YES) or 0 (NO).
-  You:  <emphasis role="bold">1</emphasis>
+  You:  ]]><emphasis role="bold">1</emphasis><![CDATA[
 System: DMSFOR605R Enter disk label:
-  You:  <emphasis role="bold">NOV150</emphasis>
-System: DMSFOR733I Formatting disk I</screen>
+  You:  ]]><emphasis role="bold">NOV150</emphasis><![CDATA[
+System: DMSFOR733I Formatting disk I]]></screen>
     </step>
     <step>
      <para>
@@ -675,189 +1086,237 @@ System: DMSFOR733I Formatting disk I</screen>
      </para>
     </step>
     <step>
-     <para>Transfer the CMS tools via FTP</para>
-     <screen>     invmarc.exec
-     vmaexec.exec</screen>
+     <para>
+      Transfer the CMS tools via FTP
+     </para>
+<screen><![CDATA[     invmarc.exec
+     vmaexec.exec]]></screen>
      <para>
       and disk images for NOV19X VMARC to work disk (f00), NOV150 VMARC to
       NOV150 (150) and NOV151 VMARC to NOV151 (151).
      </para>
      <para>
       The images and CMS tools must be transferred via FTP in BINARY mode to
-      ensure that the files are not modified in transit. Use the planning and
-      installation worksheet as a checklist for the process of uploading the
-      files to z/VM.
+      ensure that the files are not modified in transit. Use the planning
+      and installation worksheet as a checklist for the process of uploading
+      the files to z/VM.
      </para>
      <para>
-      The files can also be transferred using magnetic tape if a tape drive is
-      available.
+      The files can also be transferred using magnetic tape if a tape drive
+      is available.
      </para>
      <warning>
       <title>Use binary mode when tranfering with FTP</title>
       <para>
-       If you use FTP to transfer the files, the files must be transferred using
-       BINARY mode. Using the default ASCII transfer will corrupt the files and
-       make them unusable.
+       If you use FTP to transfer the files, the files must be transferred
+       using BINARY mode. Using the default ASCII transfer will corrupt the
+       files and make them unusable.
       </para>
       <para>
        If transferring the files via tape, be certain to preserve file
-       attributes such as LRECL, record format and block size.  The CMS
-       utilities expect the files to be in certain formats, and will fail if not
-       presented with the correct input.
+       attributes such as LRECL, record format and block size. The CMS
+       utilities expect the files to be in certain formats, and will fail if
+       not presented with the correct input.
       </para>
      </warning>
-     <para>A FTP session might appear similar to the following example:</para>
-     <screen>Wkstn:  somelinux@linux:>
-  You:  <emphasis role="bold">FTP ZVM.EXAMPLE.COM</emphasis>
+     <para>
+      A FTP session might appear similar to the following example:
+     </para>
+<screen><![CDATA[Wkstn:  somelinux@linux:>
+  You:  ]]><emphasis role="bold">FTP ZVM.EXAMPLE.COM</emphasis><![CDATA[
 Wkstn:  Connected to zvm.example.com
         220-FTPSERVE IBM VM Level 520 at zvm.example.com ...
         220 Connection will close if idle for more than 5 minutes.
         Name (zvm.example.com:novstart):
-  You:  <emphasis role="bold">NOVSTART</emphasis>
+  You:  ]]><emphasis role="bold">NOVSTART</emphasis><![CDATA[
 Wkstn:  331 Send password please.
         Password:
-  You:  <emphasis role="bold">(PASSWORD FOR NOVSTART)</emphasis>
+  You:  ]]><emphasis role="bold">(PASSWORD FOR NOVSTART)</emphasis><![CDATA[
 Wkstn:  230 NOVSTART logged in; working directory = NOVSTART 191
         Remote system type is VM
         ftp>
-  You:  <emphasis role="bold">SITE FIX 80</emphasis>
+  You:  ]]><emphasis role="bold">SITE FIX 80</emphasis><![CDATA[
 Wkstn:  200 Site command was accepted.
         ftp>
-  You:  <emphasis role="bold">BINARY</emphasis>
+  You:  ]]><emphasis role="bold">BINARY</emphasis><![CDATA[
 Wkstn:  200 Representation type is IMAGE.
           ftp>
-  You:  <emphasis role="bold">CD NOVSTART.F00</emphasis>
+  You:  ]]><emphasis role="bold">CD NOVSTART.F00</emphasis><![CDATA[
 Wkstn:  250 Working directory is NOVSTART F00
         ftp>
-  You:  <emphasis role="bold">PUT INVMARC.EXEC INVMARC.EXEC</emphasis>
+  You:  ]]><emphasis role="bold">PUT INVMARC.EXEC INVMARC.EXEC</emphasis><![CDATA[
 Wkstn:  ... transfer messages ...
         ftp>
-  You:  <emphasis role="bold">PUT VMAEXEC.EXEC VMAEXEC.EXEC</emphasis>
+  You:  ]]><emphasis role="bold">PUT VMAEXEC.EXEC VMAEXEC.EXEC</emphasis><![CDATA[
 Wkstn:  ...transfer messages...
         ftp>
-  You:  <emphasis role="bold">PUT NOV19X.VMARC NOV19X.VMARC</emphasis>
+  You:  ]]><emphasis role="bold">PUT NOV19X.VMARC NOV19X.VMARC</emphasis><![CDATA[
 Wkstn:  ... transfer messages ...
         ftp>
-  You:  <emphasis role="bold">cd NOVSTART.150</emphasis>
+  You:  ]]><emphasis role="bold">cd NOVSTART.150</emphasis><![CDATA[
 Wkstn:  ... transfer messages ...
         ftp>
-  You:  <emphasis role="bold">PUT NOV150.VMARC NOV150.VMARC</emphasis>
+  You:  ]]><emphasis role="bold">PUT NOV150.VMARC NOV150.VMARC</emphasis><![CDATA[
 Wkstn:  ... transfer messages ...
         ftp>
-  You:  <emphasis role="bold">cd NOVSTART.151</emphasis>
+  You:  ]]><emphasis role="bold">cd NOVSTART.151</emphasis><![CDATA[
 Wkstn:  ... transfer messages ...
         ftp>
-  You:  <emphasis role="bold">PUT NOV151.VMARC NOV151.VMARC</emphasis>
+  You:  ]]><emphasis role="bold">PUT NOV151.VMARC NOV151.VMARC</emphasis><![CDATA[
 Wkstn:  ... transfer messages ...
         ftp>
-  You:  <emphasis role="bold">QUIT</emphasis>
+  You:  ]]><emphasis role="bold">QUIT</emphasis><![CDATA[
 Wkstn:  221 Quit command received. Goodbye.
-somelinux@linux:></screen>
+somelinux@linux:>]]></screen>
     </step>
     <step>
-     <para>Log into NOVSTART via a tn3270 session.</para>
+     <para>
+      Log into NOVSTART via a tn3270 session.
+     </para>
     </step>
     <step>
-     <para>Access the NOVSTART temporary disk as filemode A by typing</para>
-     <screen>ACCESS F00 A</screen>
+     <para>
+      Access the NOVSTART temporary disk as filemode A by typing
+     </para>
+<screen><![CDATA[ACCESS F00 A]]></screen>
     </step>
     <step>
-     <para>Access the z/VM TCPIP utilities by typing</para>
-     <screen>VMLINK TCPMAINT 592</screen>
+     <para>
+      Access the z/VM TCPIP utilities by typing
+     </para>
+<screen><![CDATA[VMLINK TCPMAINT 592]]></screen>
     </step>
     <step>
      <para>
       At this point of the installation you have to choose between two
       options. You can start the script <command>INVMARC EXEC</command> and
       watch the installation or you can do this on your own following the
-      steps below.  If you start the script, please go to step 9.  The
+      steps below. If you start the script, please go to step 9. The
       execution of the script may last 15 minutes.
      </para>
-     <substeps>
+     <substeps performance="required">
       <step>
-       <para>Extracting VMAEXEC EXEC A...</para>
-       <screen>EXEC VMAEXEC EXTRACT A</screen>
+       <para>
+        Extracting VMAEXEC EXEC A...
+       </para>
+<screen><![CDATA[EXEC VMAEXEC EXTRACT A]]></screen>
       </step>
       <step>
-       <para>Erasing VMAEXEC EXEC A...</para>
-       <screen>ERASE VMAEXEC EXEC A (TYPE</screen>
+       <para>
+        Erasing VMAEXEC EXEC A...
+       </para>
+<screen><![CDATA[ERASE VMAEXEC EXEC A (TYPE]]></screen>
       </step>
       <step>
-       <para>Unpacking NOV19X VMARC A...</para>
-       <screen>VMARC UNPACK NOV19X VMARC A * * A</screen>
+       <para>
+        Unpacking NOV19X VMARC A...
+       </para>
+<screen><![CDATA[VMARC UNPACK NOV19X VMARC A * * A]]></screen>
       </step>
       <step>
-       <para><!-- "pagebreak" --><?dbfo-need height="15em"?>Extracting CMSDEXEC EXEC A...</para>
-       <screen>EXEC CMSDEXEC EXTRACT A</screen>
+       <para>
+<!-- "pagebreak" -->
+<?dbfo-need height="15em"?>
+        Extracting CMSDEXEC EXEC A...
+       </para>
+<screen><![CDATA[EXEC CMSDEXEC EXTRACT A]]></screen>
       </step>
       <step>
-       <para>Erasing CMSDEXEC EXEC A...</para>
-       <screen>ERASE CMSDEXEC EXEC A (TYPE</screen>
+       <para>
+        Erasing CMSDEXEC EXEC A...
+       </para>
+<screen><![CDATA[ERASE CMSDEXEC EXEC A (TYPE]]></screen>
       </step>
       <step>
-       <para>Restoring NOV191 DISKIMG A...</para>
-       <screen>EXEC CMSDDR RESTORE 191 NOV191 DISKIMG A</screen>
+       <para>
+        Restoring NOV191 DISKIMG A...
+       </para>
+<screen><![CDATA[EXEC CMSDDR RESTORE 191 NOV191 DISKIMG A]]></screen>
       </step>
       <step>
-       <para>Restoring NOV19F DISKIMG A...</para>
-       <screen>EXEC CMSDDR RESTORE 19F NOV19F DISKIMG A</screen>
+       <para>
+        Restoring NOV19F DISKIMG A...
+       </para>
+<screen><![CDATA[EXEC CMSDDR RESTORE 19F NOV19F DISKIMG A]]></screen>
       </step>
       <step>
-       <para>Erasing files no longer needed...</para>
-       <screen>ERASE NOV19X VMARC A (TYPE
+       <para>
+        Erasing files no longer needed...
+       </para>
+<screen><![CDATA[ERASE NOV19X VMARC A (TYPE
 ERASE NOV191 DISKIMG A (TYPE
-ERASE NOV19F DISKIMG A (TYPE</screen>
-      </step>
-      <step>
-       <para>Accessing DASD 150 as G</para>
-       <screen>ACCESS 150 G</screen>
-      </step>
-      <step>
-       <para>Unpacking NOV150 VMARC G...</para>
-       <screen>VMARC UNPACK NOV150 VMARC G * * A</screen>
-      </step>
-      <step>
-       <para>Release G</para>
-       <screen>RELEASE G</screen>
-      </step>
-      <step>
-       <para>Restoring NOV150 DISKIMG A...</para>
-       <screen>EXEC CMSDDR RESTORE 150 NOV150 DISKIMG A</screen>
+ERASE NOV19F DISKIMG A (TYPE]]></screen>
       </step>
       <step>
        <para>
-        No need to ERASE NOV150 VMARC G since we just wrote over the 150 disk
-        doing the RESTORE.
+        Accessing DASD 150 as G
        </para>
+<screen><![CDATA[ACCESS 150 G]]></screen>
       </step>
       <step>
-	<para>Freeing space on disk 151</para>
-	<screen>ERASE NOV150 DISKIMG A (TYPE</screen>
-      </step>
-      <step>
-       <para>Accessing 151 as G</para>
-       <screen>ACCESS 151 G</screen>
-      </step>
-      <step>
-       <para>Unpacking NOV151 VMARC G...</para>
-       <screen>VMARC UNPACK NOV151 VMARC G * * A</screen>
-      </step>
-      <step>
-       <para>Restoring NOV151 DISKIMG A...</para>
-       <screen>EXEC CMSDDR RESTORE 151 NOV151 DISKIMG A</screen>
-      </step>
-      <step>
-       <para>Erasing file no longer needed... </para>
-       <screen>ERASE NOV151 DISKIMG A (TYPE</screen>
        <para>
-        No need to ERASE NOV151 VMARC G since we just wrote over the 151 disk
-        doing the RESTORE.
+        Unpacking NOV150 VMARC G...
+       </para>
+<screen><![CDATA[VMARC UNPACK NOV150 VMARC G * * A]]></screen>
+      </step>
+      <step>
+       <para>
+        Release G
+       </para>
+<screen><![CDATA[RELEASE G]]></screen>
+      </step>
+      <step>
+       <para>
+        Restoring NOV150 DISKIMG A...
+       </para>
+<screen><![CDATA[EXEC CMSDDR RESTORE 150 NOV150 DISKIMG A]]></screen>
+      </step>
+      <step>
+       <para>
+        No need to ERASE NOV150 VMARC G since we just wrote over the 150
+        disk doing the RESTORE.
        </para>
       </step>
       <step>
-       <para>Accessing DASD 191 as E, and 19F as F</para>
-       <screen>ACCESS 191 E
-ACCESS 19F F</screen>
+       <para>
+        Freeing space on disk 151
+       </para>
+<screen><![CDATA[ERASE NOV150 DISKIMG A (TYPE]]></screen>
+      </step>
+      <step>
+       <para>
+        Accessing 151 as G
+       </para>
+<screen><![CDATA[ACCESS 151 G]]></screen>
+      </step>
+      <step>
+       <para>
+        Unpacking NOV151 VMARC G...
+       </para>
+<screen><![CDATA[VMARC UNPACK NOV151 VMARC G * * A]]></screen>
+      </step>
+      <step>
+       <para>
+        Restoring NOV151 DISKIMG A...
+       </para>
+<screen><![CDATA[EXEC CMSDDR RESTORE 151 NOV151 DISKIMG A]]></screen>
+      </step>
+      <step>
+       <para>
+        Erasing file no longer needed...
+       </para>
+<screen><![CDATA[ERASE NOV151 DISKIMG A (TYPE]]></screen>
+       <para>
+        No need to ERASE NOV151 VMARC G since we just wrote over the 151
+        disk doing the RESTORE.
+       </para>
+      </step>
+      <step>
+       <para>
+        Accessing DASD 191 as E, and 19F as F
+       </para>
+<screen><![CDATA[ACCESS 191 E
+ACCESS 19F F]]></screen>
       </step>
      </substeps>
     </step>
@@ -866,13 +1325,12 @@ ACCESS 19F F</screen>
       The result is a completely installed system.
      </para>
      <para>
-      If all of the above steps have been successfull, the installation of the
-      &starts; is completed. Next step would be the configuration of the
-      &starts;.
+      If all of the above steps have been successfull, the installation of
+      the &starts; is completed. Next step would be the configuration of
+      the &starts;.
      </para>
     </step>
    </procedure>
   </sect2>
  </sect1>
 </chapter>
- 

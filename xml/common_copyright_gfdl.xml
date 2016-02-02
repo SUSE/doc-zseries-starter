@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE legalnotice PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd"
+<!DOCTYPE legalnotice
 [
-  <!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
   <!ENTITY % entities SYSTEM "entity-decl.ent">
-  %entities;
+    %entities;
 ]>
+<!-- Converted by suse-upgrade version 1.1 -->
 <!--
      Please keep this document neatly formatted, because a text version
      for LICENSE.txt is created form this source. That means only the
      xml tags will be stripped, the rest of the formatting will appear
      in the txt file as is.
 -->
-<legalnotice>
+<legalnotice  version="5.0" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink">
  <para>
   Copyright &copy; 2006&ndash;
 <?dbtimestamp format="Y"?>
@@ -25,10 +25,11 @@
   section entitled <quote>GNU Free Documentation License</quote>.
  </para>
  <para>
-  For &suse; trademarks, see <ulink url="http://www.suse.com/company/legal/"/>.
-  All other third party trademarks are the property of their respective
-  owners. A trademark symbol (&reg;, &trade; etc.) denotes a &suse;
-  or Novell trademark; an asterisk (*) denotes a third party trademark.
+  For &suse; trademarks, see
+  <link version="5.0" xlink:href="http://www.suse.com/company/legal/"/>. All
+  other third party trademarks are the property of their respective owners.
+  A trademark symbol (&reg;, &trade; etc.) denotes a &suse; or
+  Novell trademark; an asterisk (*) denotes a third party trademark.
  </para>
  <para>
   All information found in this book has been compiled with utmost attention
