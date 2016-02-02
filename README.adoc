@@ -1,4 +1,4 @@
-= SUSE Linux Enterprise for IBM System Documentation
+= SUSE Linux Enterprise for IBM System z Documentation
 
 == Starter System Creation Guide
 
